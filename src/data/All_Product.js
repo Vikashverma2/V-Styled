@@ -32,7 +32,7 @@ import men23 from '../assets/men/jeans5.webp';
 
 
 
-let mens = [
+let allProducts = [
   { 
     id: 1,
     name:  "Men's Casual Shirt",
@@ -184,4 +184,4 @@ let mens = [
           
 ];
 
-export default mens;
+export default allProducts;

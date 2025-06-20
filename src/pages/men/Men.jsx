@@ -8,6 +8,10 @@ export const Men = () => {
   return (
     <div className='men-container'>
       <img src={banner} alt="Mens-Banner" />
+      <div className=''>
+
+      </div>
+
         
     </div>
   )
