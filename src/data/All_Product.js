@@ -16,11 +16,11 @@ import men15 from '../assets/men/men-jacket-3.webp';
 import men16 from '../assets/men/shirt5.webp'; 
 import men17 from '../assets/men/men-tshirt-4.webp';  
 import men18 from '../assets/men/shoes4.webp';  
-import men19 from '../assets/men/jeans4.webp';  
-import men20 from '../assets/men/shirt6.webp'; 
-import men21 from '../assets/men/men-tshirt-5.webp';  
-import men22 from '../assets/men/shoes4.webp';  
-import men23 from '../assets/men/jeans5.webp';  
+// import men19 from '../assets/men/jeans4.webp';  
+// import men20 from '../assets/men/shirt6.webp'; 
+// import men21 from '../assets/men/men-tshirt-5.webp';  
+// import men22 from '../assets/men/shoes4.webp';  
+// import men23 from '../assets/men/jeans5.webp';  
   
 
 
