@@ -3,6 +3,8 @@ import React from "react";
 export const Footer = () => {
   return (
     <div className="footer">
+
+
       <div className="about-footer">
         <h2>About</h2>
         <ul>
@@ -89,6 +91,7 @@ export const Footer = () => {
           </li>
         </ul>
       </div>
+      
 
     </div>
   );

@@ -255,7 +255,7 @@ let allProducts = [
  },
  { 
     id: 23,
-    name:  "baggy Jeans",
+    name:  "men lofer shoes",
     category: "mens",   
     image: men13,
     new_price: 1299.99,
@@ -263,11 +263,19 @@ let allProducts = [
  },
  { 
     id: 24,
-    name:  "baggy Jeans",
+    name:  "men casual shirt",
     category: "mens",   
     image: men6,
     new_price: 1299.99,
     old_price: 1699.99,
+ },
+ { 
+    id: 25,
+    name:  "men Casual shoes",
+    category: "mens",   
+    image: men3,
+    new_price: 299.99,
+    old_price: 699.99,
  },
 
 
@@ -276,7 +284,7 @@ let allProducts = [
 
 
   { 
-    id: 25,
+    id: 26,
     name:  "Printed Kanjivaram Silk Saree ",
     category: "womens",   
     image: women1,
@@ -285,7 +293,7 @@ let allProducts = [
  },
  {                           
 
-    id: 26,
+    id: 27,
     name:  "Women Casual Dress",
     category: "womens",   
     image: women2,
@@ -293,7 +301,7 @@ let allProducts = [
     old_price: 399.99,
  },
  { 
-    id: 27,
+    id: 28,
     name:  "Printed Kanjivaram Silk Saree",
     category: "womens",   
     image: women3,
@@ -301,7 +309,7 @@ let allProducts = [
     old_price: 999.99,
  },
  { 
-    id: 28,
+    id: 29,
     name:  "Women Casual Dress",
     category: "womens",   
     image: women4,
@@ -309,7 +317,7 @@ let allProducts = [
     old_price: 1699.99,
  },
  { 
-    id: 29,
+    id: 30,
     name:  "Printed Kanjivaram Silk Saree",
     category: "womens",   
     image: women5,
@@ -317,7 +325,7 @@ let allProducts = [
     old_price: 2999.99,
  },
  { 
-    id: 30,
+    id: 31,
     name:  "Women Casual Dress",
     category: "womens",   
     image: women6,
@@ -325,7 +333,7 @@ let allProducts = [
     old_price: 699.99,
  },                            
  { 
-    id: 31,
+    id: 32,
     name:  "Printed Kanjivaram Silk Saree",
     category: "womens",   
     image:  women7,
@@ -333,7 +341,7 @@ let allProducts = [
     old_price: 399.99,
  },
  { 
-    id: 32,
+    id: 33,
     name:  "women Casual Dress",
     category: "womens",   
     image: women8,
@@ -341,7 +349,7 @@ let allProducts = [
     old_price: 999.99,
  },
  { 
-    id: 33,
+    id: 34,
     name:  "Printed Kanjivaram Silk Saree",
     category: "womens",   
     image: women9,
@@ -349,7 +357,7 @@ let allProducts = [
     old_price: 1699.99,
  },
  { 
-    id: 34,
+    id: 35,
     name:  "women Casual Dress",
     category: "womens",   
     image: women10,
@@ -357,7 +365,7 @@ let allProducts = [
     old_price: 2999.99,
  },
  { 
-    id: 35,
+    id: 36,
     name:  "Printed Kanjivaram Silk Saree",
     category: "womens",   
     image: women11,
@@ -365,7 +373,7 @@ let allProducts = [
     old_price: 699.99,
  },                            
  { 
-    id: 36,
+    id: 37,
     name:  "women Casual Dress",
     category: "womens",   
     image: women12,
@@ -373,7 +381,7 @@ let allProducts = [
     old_price: 399.99,
  },
  { 
-    id: 37,
+    id: 38,
     name:  "Printed Kanjivaram Silk Saree",
     category: "womens",   
     image: women13,
@@ -381,7 +389,7 @@ let allProducts = [
     old_price: 999.99,
  },
  { 
-    id: 38,
+    id: 39,
     name:  "women Casual Dress",
     category: "womens",   
     image: women14,
@@ -389,7 +397,7 @@ let allProducts = [
     old_price: 1699.99,
  },
  { 
-    id: 39,
+    id: 40,
     name:  "Printed Kanjivaram Silk Saree",
     category: "womens",   
     image: women15,
@@ -397,7 +405,7 @@ let allProducts = [
     old_price: 699.99,
  },                            
  { 
-    id: 40,
+    id: 41,
     name:  "women Casual Dress",
     category: "womens",   
     image: women16,
@@ -405,7 +413,7 @@ let allProducts = [
     old_price: 399.99,
  },
  { 
-    id: 41,
+    id: 42,
     name:  "printed Kanjivaram Silk Saree",
     category: "womens",   
     image: women17,
@@ -413,7 +421,7 @@ let allProducts = [
     old_price: 999.99,
  },
  { 
-    id: 42,
+    id: 43,
     name:  "women Casual Dress",
     category: "womens",   
     image: women18,
@@ -421,7 +429,7 @@ let allProducts = [
     old_price: 1699.99,
  },
   { 
-    id: 43,
+    id: 44,
     name:  "women Casual Dress",
     category: "womens",   
     image: women1,
@@ -429,7 +437,7 @@ let allProducts = [
     old_price: 1699.99,
  },
  { 
-    id: 44,
+    id: 45,
     name:  "Printed Kanjivaram Silk Saree",
     category: "womens",   
     image: women5,
@@ -437,7 +445,7 @@ let allProducts = [
     old_price: 699.99,
  },                            
  { 
-    id: 45,
+    id: 46,
     name:  "women Casual Dress",
     category: "womens",   
     image: women12,
@@ -445,7 +453,7 @@ let allProducts = [
     old_price: 399.99,
  },
  { 
-    id: 46,
+    id: 47,
     name:  "printed Kanjivaram Silk Saree",
     category: "womens",   
     image: women3,
@@ -453,7 +461,7 @@ let allProducts = [
     old_price: 999.99,
  },
  { 
-    id: 47,
+    id: 48,
     name:  "women Casual Dress",
     category: "womens",   
     image: women9,
@@ -461,10 +469,18 @@ let allProducts = [
     old_price: 1699.99,
  },
  { 
-    id: 48,
+    id: 49,
     name:  "women Casual Dress",
     category: "womens",   
     image: women13,
+    new_price: 1299.99,
+    old_price: 1699.99,
+ },
+ { 
+    id: 50,
+    name:  "women Casual Dress",
+    category: "womens",   
+    image: women7,
     new_price: 1299.99,
     old_price: 1699.99,
  },
