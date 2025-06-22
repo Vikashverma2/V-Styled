@@ -1,0 +1,27 @@
+.shopcategory{
+    display: flex;
+  flex-direction: column;
+  padding: 2% 4%;
+}
+.shopcategory img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.shopcategory-products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.shopcategory-products .product-card{
+    width: calc(25% - 20px);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
