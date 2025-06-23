@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { ShopContext } from '../../Context/ShopContext'; 
 import './ShopCategory.css';
 import { Footer } from '../homePage/Footer';
@@ -11,17 +11,36 @@ import { FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa6';
 
 export const ShopCategory = (props) => {
   const { all_products } = useContext(ShopContext);
-  const [visibleCount, setVisibleCount] = useState(15); // show 15 products initially
-
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 10); // load 10 more on each click
-  };
+  const [visibleCount, setVisibleCount] = useState(15); 
+  const [sortOption, setSortOption] = useState('default');
+  const [sortedProducts, setSortedProducts] = useState([]);
 
   const filteredProducts = all_products.filter(
     (product) => product.category === props.catogry
   );
 
-  const visibleProducts = filteredProducts.slice(0, visibleCount);
+  // Sorting Logic
+  useEffect(() => {
+    let sorted = [...filteredProducts];
+    if (sortOption === 'price-low-to-high') {
+      sorted.sort((a, b) => a.new_price - b.new_price);
+    } else if (sortOption === 'price-high-to-low') {
+      sorted.sort((a, b) => b.new_price - a.new_price);
+    } else if (sortOption === 'newest') {
+      sorted.sort((a, b) => b.id - a.id); // assuming newer items have higher IDs
+    }
+    setSortedProducts(sorted);
+  }, [sortOption, all_products, props.catogry]);
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 10);
+  };
+
+  const visibleProducts = sortedProducts.slice(0, visibleCount);
 
   return (
     <div className='shopcategory'>
@@ -33,7 +52,7 @@ export const ShopCategory = (props) => {
         </p>
         <div className='shopcategory-sort'>
           <label htmlFor="sort">Sort by</label>
-          <select id="sort">
+          <select id="sort" value={sortOption} onChange={handleSortChange}>
             <option value="default">Default</option>
             <option value="price-low-to-high">Price: Low to High</option>
             <option value="price-high-to-low">Price: High to Low</option>
@@ -60,7 +79,7 @@ export const ShopCategory = (props) => {
         ))}
       </div>
 
-      {/* Load More Button */}
+     
       {visibleCount < filteredProducts.length && (
         <div className="load-more-container">
           <button className="load-more-btn" onClick={handleLoadMore}>
@@ -93,5 +112,3 @@ export const ShopCategory = (props) => {
     </div>
   );
 };
-
-
