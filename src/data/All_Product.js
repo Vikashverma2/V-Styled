@@ -67,6 +67,16 @@ import kid18 from '../assets/kids/kid-girl12.webp';
 
 
 
+import accessories1 from '../assets/accessories/accessories2.webp';
+import accessories2 from '../assets/accessories/accessories3.webp';
+import accessories3 from '../assets/accessories/accessories4.webp';
+import accessories7 from '../assets/accessories/accessories8.webp';
+import accessories10 from '../assets/accessories/accessories11.webp';
+import accessories11 from '../assets/accessories/accessories12.webp';
+import accessories12 from '../assets/accessories/accessories13.webp';
+import accessories14 from '../assets/accessories/accessories15.webp';
+import accessories15 from '../assets/accessories/accessories16.webp';
+import accessories16 from '../assets/accessories/accessories51.webp';
 
 
 
@@ -379,7 +389,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   id: 34,
   name: "Soft Knit Sweater",
   category: "mens",
-  image: men7,
+  image: men5,
   description: "Cozy comfort that’s great for cold evenings.",
   new_price: 1380.40,
   old_price: 1989.99,
@@ -400,7 +410,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
 
 {
   id: 36,
-  name: "Festive Kanjivaram Silk Saree",
+  name: "Festive Silk Saree",
   category: "womens",
   image: women1,
   description: "Luxurious fabric and vibrant color for traditional events.",
@@ -652,7 +662,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
 },
 {
   id: 64,
-  name: "Contemporary Designer Saree",
+  name: "Modern Designer Saree",
   category: "womens",
   image: women11,
   description: "A perfect balance of tradition and trend.",
@@ -720,10 +730,6 @@ import kid18 from '../assets/kids/kid-girl12.webp';
 
 
 
-
-
-
-
 {
   id: 71,
   name: "Boy Stylish Outfit",
@@ -731,7 +737,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid1,
   new_price: 449.99,
   old_price: 699.99,
-  des: "Trendy boy's outfit perfect for casual outings and parties."
+  description: "Trendy boy's outfit perfect for casual outings and parties."
 },
 {
   id: 72,
@@ -740,7 +746,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid2,
   new_price: 300.99,
   old_price: 399.99,
-  des: "Soft cotton frock with a floral design for girls."
+  description: "Soft cotton frock with a floral design for girls."
 },
 {
   id: 73,
@@ -749,7 +755,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid3,
   new_price: 799.99,
   old_price: 999.99,
-  des: "Stylish fashion outfit designed for cool little boys."
+  description: "Stylish fashion outfit designed for cool little boys."
 },
 {
   id: 74,
@@ -758,7 +764,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid4,
   new_price: 1299.99,
   old_price: 1699.99,
-  des: "Comfortable and casual outfit for active girls."
+  description: "Comfortable and casual outfit for active girls."
 },
 {
   id: 75,
@@ -767,7 +773,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid5,
   new_price: 1599.99,
   old_price: 1999.99,
-  des: "Formal blazer set perfect for boys' special occasions."
+  description: "Formal blazer set perfect for boys' special occasions."
 },
 {
   id: 76,
@@ -776,7 +782,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid6,
   new_price: 1399.99,
   old_price: 1799.99,
-  des: "Elegant ethnic gown for girls with festive flair."
+  description: "Elegant ethnic gown for girls with festive flair."
 },
 {
   id: 77,
@@ -785,7 +791,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid7,
   new_price: 349.99,
   old_price: 499.99,
-  des: "Smart polo t-shirt for boys with short sleeves."
+  description: "Smart polo t-shirt for boys with short sleeves."
 },
 {
   id: 78,
@@ -794,7 +800,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid8,
   new_price: 749.99,
   old_price: 999.99,
-  des: "Lovely floral print dress for little girls."
+  description: "Lovely floral print dress for little girls."
 },
 {
   id: 79,
@@ -803,7 +809,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid9,
   new_price: 899.99,
   old_price: 1299.99,
-  des: "Comfortable jogger set for playful boys."
+  description: "Comfortable jogger set for playful boys."
 },
 {
   id: 80,
@@ -812,7 +818,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid10,
   new_price: 449.99,
   old_price: 649.99,
-  des: "Cotton shirt-styled dress for smart little girls."
+  description: "Cotton shirt-styled dress for smart little girls."
 },
 {
   id: 81,
@@ -821,7 +827,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid11,
   new_price: 549.99,
   old_price: 849.99,
-  des: "Checked casual shirt for cool boys."
+  description: "Checked casual shirt for cool boys."
 },
 {
   id: 82,
@@ -830,7 +836,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid12,
   new_price: 499.99,
   old_price: 699.99,
-  des: "Soft and fun nightwear with cartoon prints."
+  description: "Soft and fun nightwear with cartoon prints."
 },
 {
   id: 83,
@@ -839,7 +845,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid13,
   new_price: 799.99,
   old_price: 1099.99,
-  des: "Traditional ethnic kurta pajama for boys."
+  description: "Traditional ethnic kurta pajama for boys."
 },
 {
   id: 84,
@@ -848,7 +854,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid14,
   new_price: 649.99,
   old_price: 949.99,
-  des: "Breezy and cute summer dress for girls."
+  description: "Breezy and cute summer dress for girls."
 },
 {
   id: 85,
@@ -857,7 +863,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid15,
   new_price: 899.99,
   old_price: 1299.99,
-  des: "Stylish full sleeve set ideal for cooler days."
+  description: "Stylish full sleeve set ideal for cooler days."
 },
 {
   id: 86,
@@ -866,7 +872,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid16,
   new_price: 999.99,
   old_price: 1399.99,
-  des: "Pretty kurti with matching leggings for girls."
+  description: "Pretty kurti with matching leggings for girls."
 },
 {
   id: 87,
@@ -875,7 +881,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid17,
   new_price: 1499.99,
   old_price: 1999.99,
-  des: "Traditional festive outfit for young boys."
+  description: "Traditional festive outfit for young boys."
 },
 {
   id: 88,
@@ -884,7 +890,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid18,
   new_price: 849.99,
   old_price: 1099.99,
-  des: "Warm and cozy hoodie for girls with cartoon print."
+  description: "Warm and cozy hoodie for girls with cartoon print."
 },
 {
   id: 89,
@@ -893,7 +899,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid1,
   new_price: 699.99,
   old_price: 899.99,
-  des: "Light cotton shirt and short combo for summer."
+  description: "Light cotton shirt and short combo for summer."
 },
 {
   id: 90,
@@ -902,7 +908,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid2,
   new_price: 599.99,
   old_price: 799.99,
-  des: "Cute sleepwear pajama set with printed top."
+  description: "Cute sleepwear pajama set with printed top."
 },
 {
   id: 91,
@@ -911,7 +917,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid3,
   new_price: 799.99,
   old_price: 999.99,
-  des: "Casual printed tunic with a modern boyish look."
+  description: "Casual printed tunic with a modern boyish look."
 },
 {
   id: 92,
@@ -920,7 +926,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid4,
   new_price: 749.99,
   old_price: 999.99,
-  des: "Denim shorts with a printed tee for girls."
+  description: "Denim shorts with a printed tee for girls."
 },
 {
   id: 93,
@@ -929,7 +935,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid5,
   new_price: 899.99,
   old_price: 1199.99,
-  des: "Fun animal-printed hoodie for adventurous boys."
+  description: "Fun animal-printed hoodie for adventurous boys."
 },
 {
   id: 94,
@@ -938,7 +944,7 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid6,
   new_price: 1099.99,
   old_price: 1499.99,
-  des: "Ruffle-layered birthday dress for little princesses."
+  description: "Ruffle-layered birthday dress for little princesses."
 },
 {
   id: 95,
@@ -947,11 +953,158 @@ import kid18 from '../assets/kids/kid-girl12.webp';
   image: kid7,
   new_price: 1399.99,
   old_price: 1799.99,
-  des: "Formal blazer and pant set for classy young boys."
-}
+  ddescriptiones: "Formal blazer and pant set for classy young boys."
+},
 
 
- 
+
+
+
+
+
+
+{
+  id: 96,
+  name: "Men's Leather Bracelet",
+  category: "accessories",
+  image: accessories1,
+  new_price: 1399.99,
+  old_price: 1799.99,
+  description: "Classic leather bracelet to complete any outfit."
+},
+{
+  id: 97,
+  name: "Silver Chain Bracelet",
+  category: "accessories",
+  image: accessories16,
+  new_price: 1299.99,
+  old_price: 1699.99,
+  description: "Braided design adds rugged charm to your look."
+},
+{
+  id: 98,
+  name: "Digital Analog Watch",
+  category: "accessories",
+  image: accessories10,
+  new_price: 999.99,
+  old_price: 1299.99,
+  description: "Shiny silver chain bracelet perfect for casual wear."
+},
+{
+  id: 99,
+  name: "Braided Men's Wristband ",
+  category: "accessories",
+  image: accessories3,
+  new_price: 899.99,
+  old_price: 1299.99,
+  description: "UV protection with a lightweight stylish frame."
+},
+{
+  id: 100,
+  name: "Men’s Leather Belt",
+  category: "accessories",
+  image: accessories7,
+  new_price: 1499.99,
+  old_price: 1999.99,
+  description: "Durable leather belt ideal for formal attire."
+},
+{
+  id: 101,
+  name: "Chain Link Watch",
+  category: "accessories",
+  image: accessories11,
+  new_price: 1199.99,
+  old_price: 1599.99,
+  description: "Bold chain-style wristwatch for a modern look."
+},
+{
+  id: 102,
+  name: "Crystal Women’s Bracelet",
+  category: "accessories",
+  image: accessories14,
+  new_price: 399.99,
+  old_price: 699.99,
+  description: "Elegant bracelet with shimmering crystals for glam."
+},
+{
+  id: 103,
+  name: "Elegant Men’s Watch",
+  category: "accessories",
+  image: accessories12,
+  new_price: 799.99,
+  old_price: 1099.99,
+  description: "Trendy sunglasses to elevate your summer style."
+},
+
+{
+  id: 104,
+  name: "Men’s Leather Belt",
+  category: "accessories",
+  image: accessories7,
+  new_price: 899.99,
+  old_price: 1199.99,
+  description: "Durable leather belt ideal for formal attire."
+},
+{
+  id: 105,
+  name: "Compact Travel Pouch",
+  category: "accessories",
+  image: accessories15,
+  new_price: 599.99,
+  old_price: 899.99,
+  description: "Perfect for organizing small travel essentials."
+},
+{
+  id: 106,
+  name: "Crystal Women’s Bracelet",
+  category: "accessories",
+  image: accessories14,
+  new_price: 699.99,
+  old_price: 999.99,
+  description: "Elegant bracelet with shimmering crystals for glam."
+},
+{
+  id: 107,
+  name: "Metal Strap Wristwatch",
+  category: "accessories",
+  image: accessories11,
+  new_price: 499.99,
+  old_price: 799.99,
+  description: "Stylish metal strap watch for smart daily wear."
+},
+
+{
+  id: 108,
+  name: "Braided Men's Wristband",
+  category: "accessories",
+  image: accessories3,
+  new_price: 699.99,
+  old_price: 999.99,
+  description: "Round-frame sunglasses with a retro fashion twist."
+},
+
+
+{
+  id: 109,
+  name: "Elegant Men’s Watch",
+  category: "accessories",
+  image: accessories12,
+  new_price: 799.99,
+  old_price: 1099.99,
+  description: "Refined design perfect for business or formal wear."
+},
+{
+  id: 110,
+  name: "Layered Charm Bracelet",
+  category: "accessories",
+  image: accessories1,
+  new_price: 999.99,
+  old_price: 1399.99,
+  description: "Chic layered bracelet to complement any outfit."
+},
+
+
+
     
           
 ];
