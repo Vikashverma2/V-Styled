@@ -61,7 +61,7 @@ function AuthPage() {
       <img src={loginpng} alt="" />
     </div>
     <div className="auth-box">
-      <h2>{page === "login" ? "Login" : "Signup"}</h2>
+      <h2>{page === "login" ? "login" : "Signup"}</h2>
 
       {page === "signup" && (
         <input
