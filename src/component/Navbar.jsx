@@ -37,7 +37,7 @@ const [menu, setMenu] = useState("men");
         </ul>
         <div className="nav-icons">
           <div className="nav-icon-person">
-            <Link to="login"><GoPerson /></Link>
+            <Link to="auth"><GoPerson /></Link>
           </div> 
           <div className="nav-icon-fav">
             <Link to="favorite"><IoIosHeartEmpty /></Link>

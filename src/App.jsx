@@ -12,7 +12,9 @@ import accessories_banner from "./assets/Accessories-banner.png";
 import About from "./pages/about/About";
 import Cart from "./pages/cart/Cart";
 import Favorite from "./pages/favorite/Favorite";
-import LoginPage from "./pages/loginPage/LoginPage";
+import AuthPage from "./pages/authPage/AuthPage";
+
+
 
 import { ShopCategory } from "./pages/shopCategory/ShopCategory";
 
@@ -29,7 +31,7 @@ function App() {
           <Route path="/accessories" element={<ShopCategory banner={accessories_banner} catogry="accessories" />} />
           <Route path="/about" element={<About />} />
           
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/auth" element={<AuthPage/>} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
