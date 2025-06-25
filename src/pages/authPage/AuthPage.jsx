@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AuthPage.css';
 import loginpng from '../../assets/login.png';
+import axios from 'axios';
 
 function AuthPage() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ function AuthPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-
+  const BASE_URL = "https://685c30bc89952852c2dc9047.mockapi.io";
   const resetForm = () => {
     setName("");
     setEmail("");
@@ -18,41 +19,73 @@ function AuthPage() {
     setMessage("");
   };
 
-  const handleLogin = () => {
-    if (!email || !password) {
-      setMessage("Please enter email and password");
-      return;
-    }
+ const handleLogin = async () => {
+  if (!email || !password) {
+    setMessage("Please enter email and password");
+    return;
+  }
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const user = users.find((u) => u.email === email && u.password === password); 
+  try {
+    const response = await fetch(`${BASE_URL}/users`);
+    const users = await response.json();
+
+    const user = users.find(
+      (u) => u.email === email && u.password === password
+    );
 
     if (user) {
-      navigate("/"); // redirect immediately
+      // Store user info in localStorage
+      // localStorage.setItem("loggedInUser", JSON.stringify({
+      //   name: user.name,
+      //   email: user.email,
+      // }));
+      localStorage.setItem("user_name", user.name);
+      localStorage.setItem("user_email", user.email);
+
+
+      window.location.href = "/"; 
     } else {
       setMessage("Invalid email or password");
     }
-  };
+  } catch (error) {
+    console.error("Login error:", error);
+    setMessage("Something went wrong. Please try again later.");
+  }
+};
+const handleSignup = async () => {
+  if (!name || !email || !password) {
+    setMessage("Please fill all fields");
+    return;
+  }
 
-  const handleSignup = () => {
-    if (!name || !email || !password) {
-      setMessage("Please fill all fields");
+  try {
+    // Step 1: Get all users from the API
+    const { data: users } = await axios.get(`${BASE_URL}/users`);
+
+    // Step 2: Check if email already exists
+    const exists = users.find((u) => u.email === email);
+    if (exists) {
+      setMessage("User already exists");
       return;
     }
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const exists = users.find((u) => u.email === email);
+    // Step 3: Register the new user
+    await axios.post(`${BASE_URL}/users`, {
+      name,
+      email,
+      password,
+    });
 
-    if (exists) {
-      setMessage("User already exists");
-    } else {
-      users.push({ name, email, password });
-      localStorage.setItem("users", JSON.stringify(users));
-      setMessage("Signup successful! Please login.");
-      resetForm();
-      setPage("login");
-    }
-  };
+    // Step 4: Show success message and reset
+    setMessage("Signup successful! Please login.");
+    resetForm(); // Clear name, email, password
+    setPage("login"); // Switch to login view
+  } catch (error) {
+    console.error("Signup error:", error);
+    setMessage("Something went wrong. Please try again.");
+  }
+};
+
 
   return (
    <div className="auth-page">

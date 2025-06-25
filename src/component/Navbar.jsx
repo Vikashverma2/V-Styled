@@ -1,50 +1,92 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
-import { useState } from "react";
 import logo from "/src/assets/VV.png";
 import bgg from "/src/assets/bgg.jpg";
 import logov from "/src/assets/logoV.png";
 import { PiShoppingCartSimpleLight } from "react-icons/pi";
 import { GoPerson } from "react-icons/go";
 import { IoIosHeartEmpty } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
+  const location = useLocation();
+  const [userEmail, setUserEmail] = useState("");
+  const [userName, setUserName] = useState("");
 
-const [menu, setMenu] = useState("men");
+  const getUserDetails = () => {
+    const name = localStorage.getItem("user_name");
+    const email = localStorage.getItem("user_email");
+    setUserName(name);
+    setUserEmail(email);
+  };
 
+  useEffect(() => {
+    getUserDetails();
+  }, []);
+
+  const isActive = (path) => location.pathname.includes(path);
 
   return (
     <div className="navbar">
       <nav>
-        <Link to="/"><div onClick={() => setMenu("img")}><img  src={logov} alt="V-Style" /></div>{menu=="img"?<></>:<></>}</Link>
+        <Link to="/">
+          <div>
+            <img src={logov}  alt="V-Style"  />
+          </div>
+        </Link>
+
         <ul>
-          <li onClick={() => setMenu("men")}>
-            <Link to="mens">Men {menu=="men"?<hr />:<></>}</Link>
+          <li>
+            <Link to="/mens">
+              Men {isActive("/mens") && <hr />}
+            </Link>
           </li>
-          <li onClick={() => setMenu("women")}>
-           <Link to="womens">Women {menu=="women"?<hr />:<></>}</Link>
+          <li>
+            <Link to="/womens">
+              Women {isActive("/womens") && <hr />}
+            </Link>
           </li>
-          <li onClick={() => setMenu("kid")}>
-            <Link to="kids">Kids {menu=="kid"?<hr />:<></>}</Link>
+          <li>
+            <Link to="/kids">
+              Kids {isActive("/kids") && <hr />}
+            </Link>
           </li>
-          <li onClick={() => setMenu("accessories")}>
-            <Link to="accessories">Accessories {menu=="accessories"?<hr />:<></>}</Link>
+          <li>
+            <Link to="/accessories">
+              Accessories {isActive("/accessories") && <hr />}
+            </Link>
           </li>
-          <li onClick={() => setMenu("about")}>
-            <Link to="about">About {menu=="about"?<hr />:<></>}</Link>
+          <li>
+            <Link to="/about">
+              About {isActive("/about") && <hr />}
+            </Link>
           </li>
         </ul>
+
         <div className="nav-icons">
           <div className="nav-icon-person">
-            <Link to="auth"><GoPerson /></Link>
-          </div> 
-          <div className="nav-icon-fav">
-            <Link to="favorite"><IoIosHeartEmpty /></Link>
+            {userEmail ? (
+              <Link to="user-profile" style={{ textDecoration: "none" }}>
+                <p className="user-name">Hi, {userName?.split(" ")[0]}</p>
+              </Link>
+            ) : (
+              <Link to="auth">
+                <GoPerson />
+              </Link>
+            )}
           </div>
+
+          <div className="nav-icon-fav">
+            <Link to="favorite">
+              <IoIosHeartEmpty />
+            </Link>
+          </div>
+
           <div className="nav-icon-card">
             <div className="nav-icon-cart">
-              <Link to="cart"><PiShoppingCartSimpleLight /></Link>
+              <Link to="cart">
+                <PiShoppingCartSimpleLight />
+              </Link>
             </div>
             <div className="nav-cart-count">0</div>
           </div>
@@ -54,4 +96,5 @@ const [menu, setMenu] = useState("men");
     </div>
   );
 };
+
 export default Navbar;

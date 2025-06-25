@@ -49,6 +49,8 @@
     gap: 40px;
     font-size: 24px; 
   }
+
+
   .nav-icon-theme{
       cursor: pointer;
   }
@@ -84,5 +86,13 @@
   .nav-hr {
     margin: 0px 4%;
     height: 1px;
+  }
+
+
+    .user-name{
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
   }
   

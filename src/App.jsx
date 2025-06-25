@@ -17,6 +17,7 @@ import AuthPage from "./pages/authPage/AuthPage";
 
 
 import { ShopCategory } from "./pages/shopCategory/ShopCategory";
+import UserProfile from "./pages/profile/UserProfile";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/about" element={<About />} />
           
           <Route path="/auth" element={<AuthPage/>} />
+          <Route path="/user-profile" element={<UserProfile/ >} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
