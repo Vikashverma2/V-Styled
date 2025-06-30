@@ -18,6 +18,7 @@ import AuthPage from "./pages/authPage/AuthPage";
 
 import { ShopCategory } from "./pages/shopCategory/ShopCategory";
 import UserProfile from "./pages/profile/UserProfile";
+import ProductPage from "./component/ProductPage";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
           <Route path="/kids" element={<ShopCategory banner={kid_banner} catogry="kids" />} />
           <Route path="/accessories" element={<ShopCategory banner={accessories_banner} catogry="accessories" />} />
           <Route path="/about" element={<About />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
+
           
           <Route path="/auth" element={<AuthPage/>} />
           <Route path="/user-profile" element={<UserProfile/ >} />

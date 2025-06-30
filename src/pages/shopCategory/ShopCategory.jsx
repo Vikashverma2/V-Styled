@@ -88,7 +88,7 @@ export const ShopCategory = (props) => {
         </div>
       )}
 
-      <hr className="footer-hr" />
+      <hr className="footer-hr" />  
       <Footer />
       <hr className="footer-hr" />
 
