@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
-
+import HomepageProduct from "../../data/HomePage_Product"
 
 
 
@@ -9,21 +9,36 @@ import { useNavigate } from "react-router-dom";
 const NewArrivals = () => {
 const navigate = useNavigate();
 
+
+const [NewArrivals, setNewArrivals]= useState([])
+
   const handleProductClick = (productId) => {
     navigate(`/product/${productId}`);
   };
 
+  useEffect(()=>{
+    filterNewArrivals();
+    
+  },[])
 
+
+  const filterNewArrivals = ()=>{
+    var products = HomepageProduct.filter((a) => a.page === "NewArrivel")
+    setNewArrivals(products);
+
+  }
 
   return (
     <div className="new-arrivals-container">
-      {handleProductClick.map((item) => (
-        <div key={item.id} className="new-arrival-card">
-          <img src={item.image} alt={item.name} className="new-arrival-image" />
+      {NewArrivals.map((product) => (
+        <div
+        onClick={()=> handleProductClick(product.id)}
+        key={product.id} className="new-arrival-card">
+          <img src={product.image} alt={product.name} className="new-arrival-image" />
           <div className="new-arrival-details">
-            <h3 className="new-arrival-name">{item.name}</h3>
-          <p className="new-arrival-description">{item.description}</p>
-          <p className="new-arrival-price">₹{item.price}</p>
+            <h3 className="new-arrival-name">{product.name}</h3>
+          <p className="new-arrival-description">{product.shortDescription}</p>
+          <p className="new-arrival-price">₹{product.new_price}</p>
           </div>
           
         </div>

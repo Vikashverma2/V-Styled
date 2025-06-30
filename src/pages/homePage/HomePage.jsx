@@ -18,7 +18,8 @@ import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa6";
 
 import SellingProduct from "./SellingProduct";
 import { Footer } from "./Footer";
-import { NewArrivals } from "./NewArrivals";
+import NewArrivals from "./NewArrivals";
+
 
 export const HomePage = () => {
   return (

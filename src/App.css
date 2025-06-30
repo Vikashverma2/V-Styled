@@ -102,37 +102,119 @@
 /* ProductPage */
 
 
-
-
-  .product-page-container {
+.product-page{
   display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+}
+
+.product-page-container {
+  display: flex;
   padding: 20px;
   gap: 30px;
+ width: 80%;
+
 }
 
 .product-page-image {
   max-width: 400px;
   width: 100%;
   border-radius: 10px;
+  box-shadow: 10px 2px 20px rgba(0, 0, 0, 0.15);
+
+ 
 }
 
 .product-page-details {
-  flex: 1;
+
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 20px;
 }
 
-.product-page-details h1 {
+.product-page-details .name {
   margin: 0;
 }
+.product-page-details .reviews{
 
-.product-page-details button {
+  display: flex;
+gap: 100px;
+
+}
+.product-page-details .price{
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.product-page-details .size {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+ 
+}
+.product-page-details .size span{
+  font-size: 18px;
+}
+
+.product-page-details .size-box {
+  padding: 5px 12px;
+  border: 2px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.product-page-details .size-box:hover {
   background-color: black;
   color: white;
-  padding: 10px 20px;
+}
+
+
+.add-product {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.add-product button {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
   border: none;
+  border-radius: 50px;
   cursor: pointer;
-  width: fit-content;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Add to Cart Button */
+.add-product .btn-cart {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+}
+
+.add-product .btn-cart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 126, 95, 0.5);
+}
+
+/* Add to Wishlist Button */
+.add-product .btn-wishlist {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+}
+
+.add-product .btn-wishlist:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(106, 17, 203, 0.5);
 }

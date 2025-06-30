@@ -13,10 +13,10 @@ const SellingProduct = () => {
   };
 
   useEffect(() => {
-    filterTrandingProduct();
+    filterSellingProduct();
   }, []);
 
-  const filterTrandingProduct = () => {
+  const filterSellingProduct = () => {
     var products = HomepageProduct.filter((a) => a.page === "SellingProduct");
     setSellingProducts(products);
   };
@@ -33,7 +33,7 @@ const SellingProduct = () => {
             <img src={product.image} alt="" />
             <div className="selling-product-contet">
               <h2>{product.name}</h2>
-              <p>{product.des}</p>
+              <p>{product.shortDescription}</p>
               <h3>
                 ₹{product.new_price}
                 <span style={{ textDecoration: "line-through", color: "gray" }}>
