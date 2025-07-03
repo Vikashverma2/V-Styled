@@ -82,7 +82,7 @@ import accessories16 from '../assets/accessories/accessories51.webp';
 
 
 
-
+// Men
 
 
    
@@ -403,6 +403,9 @@ import accessories16 from '../assets/accessories/accessories51.webp';
   new_price: 1722.66,
   old_price: 2488.00,
 },
+
+
+// Women
 
 
 
@@ -727,7 +730,7 @@ import accessories16 from '../assets/accessories/accessories51.webp';
 
 
 
-
+// Kid
 
 
 {
@@ -958,7 +961,7 @@ import accessories16 from '../assets/accessories/accessories51.webp';
 
 
 
-
+// Accessories
 
 
 

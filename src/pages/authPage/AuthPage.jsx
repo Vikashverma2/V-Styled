@@ -34,11 +34,7 @@ function AuthPage() {
     );
 
     if (user) {
-      // Store user info in localStorage
-      // localStorage.setItem("loggedInUser", JSON.stringify({
-      //   name: user.name,
-      //   email: user.email,
-      // }));
+
       localStorage.setItem("user_name", user.name);
       localStorage.setItem("user_email", user.email);
 
