@@ -40,7 +40,7 @@ import women12 from "../assets/new/women11.webp";
 import womensaree1 from "../assets/new/women-saree6.webp";
 import womensaree2 from "../assets/new/women-saree12.webp";
 
-const HomepageProduct = [
+const HomepageProductData = [
   // Trending Products
   {
     id: 1,
@@ -466,4 +466,4 @@ const HomepageProduct = [
 
 
 
-export default HomepageProduct;
+export default HomepageProductData;

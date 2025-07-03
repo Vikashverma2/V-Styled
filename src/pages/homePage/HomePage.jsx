@@ -4,17 +4,14 @@ import bgg from "../../assets/bgg.jpg";
 import app from "../../assets/app.png";
 import appstore from "../../assets/app-store.svg";
 import playstore from "../../assets/play-store.svg";
-import mastercard from '../../assets/mastercard.svg';
-import visa from '../../assets/visa.svg';
-import ruppay from '../../assets/RuPay.svg';
-import paypal from '../../assets/paypal.svg';
+
 
 import Trending from "./Trending";
 import menbanner from "../../assets/men-banner.webp";
 import womenbanner from "../../assets/women-banner.webp";
 import kidbanner from "../../assets/kid-banner.webp";
-import offerbanner from "../../assets/offer-banner.webp";
-import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa6";
+// import offerbanner from "../../assets/offer-banner.webp";
+
 
 import SellingProduct from "./SellingProduct";
 import { Footer } from "./Footer";
@@ -111,32 +108,10 @@ export const HomePage = () => {
         </div>
       </div>
 
-    <hr className="footer-hr" />
+    
      {/* Footer Link */}
+
       <Footer/>
-
-      <hr className="footer-hr" />
-
-       {/* Footer Link */}
-
-      <div className="footer-link">
-       <div className="copyright"> <p>Copyright © 2025 <a href="https://github.com/Vikashverma2/"> Vikash Verma </a>  All rights reserved</p></div>
-        <div className="footer-link-icon">
-          <p><FaInstagram /></p>
-          <p><FaFacebook /></p>
-          <p><FaYoutube /></p>
-          
-          </div>
-          <div className="footer-link-payment">
-            <img src={mastercard} alt="" />
-            <img src={paypal} alt="" />
-            {/* <img src={ruppay} alt="" /> */}
-            <img src={visa} alt="" />
-
-
-          </div>
-
-      </div>
 
 
     </div>

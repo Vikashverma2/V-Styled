@@ -18,7 +18,9 @@ import AuthPage from "./pages/authPage/AuthPage";
 
 import { ShopCategory } from "./pages/shopCategory/ShopCategory";
 import UserProfile from "./pages/profile/UserProfile";
-import ProductPage from "./component/ProductPage";
+import ProductPage from "./component/HomePageProduct";
+
+import CategoryProducts from "./component/CategoryProducts";
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
           <Route path="/accessories" element={<ShopCategory banner={accessories_banner} catogry="accessories" />} />
           <Route path="/about" element={<About />} />
           <Route path="/product/:productId" element={<ProductPage />} />
+          <Route path="/pageproduct/:productId/:name" element={<CategoryProducts/>} />
 
           
           <Route path="/auth" element={<AuthPage/>} />

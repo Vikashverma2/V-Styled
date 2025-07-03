@@ -94,6 +94,32 @@ nav ul li hr {
   cursor: pointer;
 }
 
+
+.wishlist-link {
+  position: relative;
+  display: inline-block;
+}
+
+.wishlist-count {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 10px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  line-height: 1;
+}
+
+
+
 /* ProductPage */
 
 
@@ -115,6 +141,7 @@ nav ul li hr {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  padding: 20px;
 }
 
 .product-image-section {
@@ -360,4 +387,25 @@ nav ul li hr {
   font-weight: bold;
   color: #e53935;
   font-size: 13px;
+}
+
+
+.wishlist-message {
+  margin: 15px 0;
+  padding: 12px 20px;
+  background-color: #e6ffed;
+  color: #1e7e34;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  animation: fadeInOut 2s forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
 }

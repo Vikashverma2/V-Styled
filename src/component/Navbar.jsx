@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../App.css";
 import logo from "/src/assets/VV.png";
 import bgg from "/src/assets/bgg.jpg";
@@ -7,6 +7,7 @@ import { PiShoppingCartSimpleLight } from "react-icons/pi";
 import { GoPerson } from "react-icons/go";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
+import { WishlistContext } from "../Context/WishlistContext";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -24,6 +25,8 @@ export const Navbar = () => {
     getUserDetails();
   }, []);
 
+  const { wishlist } = useContext(WishlistContext);
+
   const isActive = (path) => location.pathname.includes(path);
 
   return (
@@ -31,25 +34,19 @@ export const Navbar = () => {
       <nav>
         <Link to="/">
           <div>
-            <img src={logov}  alt="V-Style"  />
+            <img src={logov} alt="V-Style" />
           </div>
         </Link>
 
         <ul>
           <li>
-            <Link to="/mens">
-              Men {isActive("/mens") && <hr />}
-            </Link>
+            <Link to="/mens">Men {isActive("/mens") && <hr />}</Link>
           </li>
           <li>
-            <Link to="/womens">
-              Women {isActive("/womens") && <hr />}
-            </Link>
+            <Link to="/womens">Women {isActive("/womens") && <hr />}</Link>
           </li>
           <li>
-            <Link to="/kids">
-              Kids {isActive("/kids") && <hr />}
-            </Link>
+            <Link to="/kids">Kids {isActive("/kids") && <hr />}</Link>
           </li>
           <li>
             <Link to="/accessories">
@@ -57,9 +54,7 @@ export const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/about">
-              About {isActive("/about") && <hr />}
-            </Link>
+            <Link to="/about">About {isActive("/about") && <hr />}</Link>
           </li>
         </ul>
 
@@ -77,8 +72,11 @@ export const Navbar = () => {
           </div>
 
           <div className="nav-icon-fav">
-            <Link to="favorite">
-              <IoIosHeartEmpty />
+            <Link to="/favorite" className="wishlist-link">
+              <IoIosHeartEmpty size={28} />
+              {wishlist.length > 0 && (
+                <span className="wishlist-count">{wishlist.length}</span>
+              )}
             </Link>
           </div>
 

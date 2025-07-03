@@ -8,6 +8,7 @@ import mastercard from '../../assets/mastercard.svg';
 import visa from '../../assets/visa.svg';
 import paypal from '../../assets/paypal.svg';
 import { FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
 
 export const ShopCategory = (props) => {
   const { all_products } = useContext(ShopContext);
@@ -15,6 +16,8 @@ export const ShopCategory = (props) => {
   const [sortOption, setSortOption] = useState('default');
   const [sortedProducts, setSortedProducts] = useState([]);
 
+  
+  
   const filteredProducts = all_products.filter(
     (product) => product.category === props.catogry
   );
@@ -42,6 +45,17 @@ export const ShopCategory = (props) => {
 
   const visibleProducts = sortedProducts.slice(0, visibleCount);
 
+
+    const navigate = useNavigate();
+  
+    
+   const handleProductClick = (productId, name) => {
+  const encodedName = encodeURIComponent(name);
+  navigate(`/pageproduct/${productId}/${encodedName}`);
+};
+
+  
+
   return (
     <div className='shopcategory'>
       <img src={props.banner} alt={props.catogry} />
@@ -63,11 +77,12 @@ export const ShopCategory = (props) => {
 
       <div className='shopcategory-products'>
         {visibleProducts.map((product) => (
-          <div key={product.id} className='product-card'>
+          <div onClick={() => handleProductClick(product.id, product.name)} 
+          key={product.id} className='product-card'>
             <img src={product.image} alt={product.name} />
             <div className='product-details'>
               <h4>{product.name}</h4>
-              <p>{product.description}</p>
+              <p>{product.shortDescription}</p>
               <p className='product-price'>
                 ₹{product.new_price}
                 <span style={{ textDecoration: "line-through", color: "gray" }}>
@@ -88,27 +103,10 @@ export const ShopCategory = (props) => {
         </div>
       )}
 
-      <hr className="footer-hr" />  
+     
       <Footer />
-      <hr className="footer-hr" />
-
-      <div className="footer-link">
-        <div className="copyright">
-          <p>
-            Copyright © 2025 <a href="https://github.com/Vikashverma2/">Vikash Verma</a> All rights reserved
-          </p>
-        </div>
-        <div className="footer-link-icon">
-          <p><FaInstagram /></p>
-          <p><FaFacebook /></p>
-          <p><FaYoutube /></p>
-        </div>
-        <div className="footer-link-payment">
-          <img src={mastercard} alt="mastercard" />
-          <img src={paypal} alt="paypal" />
-          <img src={visa} alt="visa" />
-        </div>
-      </div>
+     
+      
     </div>
   );
 };
