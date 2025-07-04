@@ -1,31 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "../App.css";
-import logo from "/src/assets/VV.png";
-import bgg from "/src/assets/bgg.jpg";
 import logov from "/src/assets/logoV.png";
 import { PiShoppingCartSimpleLight } from "react-icons/pi";
 import { GoPerson } from "react-icons/go";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
 import { WishlistContext } from "../Context/WishlistContext";
+import { AuthContext } from "../Context/AuthContext"; // ✅ import auth context
 
 export const Navbar = () => {
   const location = useLocation();
-  const [userEmail, setUserEmail] = useState("");
-  const [userName, setUserName] = useState("");
-
-  const getUserDetails = () => {
-    const name = localStorage.getItem("user_name");
-    const email = localStorage.getItem("user_email");
-    setUserName(name);
-    setUserEmail(email);
-  };
-
-  useEffect(() => {
-    getUserDetails();
-  }, []);
-
   const { wishlist } = useContext(WishlistContext);
+  const { isLoggedIn, user } = useContext(AuthContext); // ✅ use here
 
   const isActive = (path) => location.pathname.includes(path);
 
@@ -49,9 +35,7 @@ export const Navbar = () => {
             <Link to="/kids">Kids {isActive("/kids") && <hr />}</Link>
           </li>
           <li>
-            <Link to="/accessories">
-              Accessories {isActive("/accessories") && <hr />}
-            </Link>
+            <Link to="/accessories">Accessories {isActive("/accessories") && <hr />}</Link>
           </li>
           <li>
             <Link to="/about">About {isActive("/about") && <hr />}</Link>
@@ -60,12 +44,12 @@ export const Navbar = () => {
 
         <div className="nav-icons">
           <div className="nav-icon-person">
-            {userEmail ? (
-              <Link to="user-profile" style={{ textDecoration: "none" }}>
-                <p className="user-name">Hi, {userName?.split(" ")[0]}</p>
+            {isLoggedIn ? (
+              <Link to="/user-profile" style={{ textDecoration: "none" }}>
+                <p className="user-name">Hi, {user?.name?.split(" ")[0]}</p>
               </Link>
             ) : (
-              <Link to="auth">
+              <Link to="/auth">
                 <GoPerson />
               </Link>
             )}
@@ -82,7 +66,7 @@ export const Navbar = () => {
 
           <div className="nav-icon-card">
             <div className="nav-icon-cart">
-              <Link to="cart">
+              <Link to="/cart">
                 <PiShoppingCartSimpleLight />
               </Link>
             </div>

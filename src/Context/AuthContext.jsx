@@ -7,12 +7,11 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check localStorage on first load
-    const userName = localStorage.getItem("user_name");
-    const userEmail = localStorage.getItem("user_email");
-    if (userName && userEmail) {
+    const email = localStorage.getItem("user_email");
+    const name = localStorage.getItem("user_name");
+    if (email && name) {
       setIsLoggedIn(true);
-      setUser({ name: userName, email: userEmail });
+      setUser({ email, name });
     }
   }, []);
 
