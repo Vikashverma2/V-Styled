@@ -3,17 +3,17 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import ShopContextProvider from "./Context/ShopContext.jsx";
-import { WishlistProvider } from "./Context/WishlistContext.jsx";
 import { AuthProvider } from "./Context/AuthContext.jsx";
+import { WishlistProvider } from "./Context/WishlistContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ShopContextProvider>
-      <WishlistProvider>
-        <AuthProvider>
+      <AuthProvider>
+        <WishlistProvider>
           <App />
-        </AuthProvider>
-      </WishlistProvider>
+        </WishlistProvider>
+      </AuthProvider>
     </ShopContextProvider>
   </StrictMode>
 );

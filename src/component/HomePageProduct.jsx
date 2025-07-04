@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import HomepageProductData from "../data/HomePage_Product";
 import { Footer } from "../pages/homePage/Footer";
+import { WishlistContext } from "../Context/WishlistContext";
 
 const HomePageProduct = () => {
   const { productId } = useParams();
   const [pincode, setPincode] = useState("");
+  const [wishlistMessage, setWishlistMessage] = useState("");
+
 
   const product = HomepageProductData.find(
     (item) => item.id === parseInt(productId)
@@ -18,6 +21,15 @@ const HomePageProduct = () => {
   const relatedProducts = HomepageProductData.filter(
     (item) => item.id !== product.id
   ).slice(0, 4);
+
+
+   const { addToWishlist } = useContext(WishlistContext);
+  
+    const handleAddToWishlist = (product) => {
+      addToWishlist(product);
+      setWishlistMessage(`Added to wishlist!`);
+      setTimeout(() => setWishlistMessage(""), 1000);
+    };
 
   return (
     <>
@@ -59,10 +71,15 @@ const HomePageProduct = () => {
                 ))}
               </div>
             </div>
+              {wishlistMessage && (
+              <div className="wishlist-message">{wishlistMessage}</div>
+            )}
 
             <div className="add-buttons">
               <button className="btn-cart">🛒 Add to Cart</button>
-              <button className="btn-wishlist">❤️ Add to Wishlist</button>
+              <button
+              onClick={() => handleAddToWishlist(product)} 
+              className="btn-wishlist">❤️ Add to Wishlist</button>
             </div>
 
             {/* Delivery Options Section */}

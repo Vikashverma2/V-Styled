@@ -124,6 +124,8 @@ nav ul li hr {
 
 
 
+
+
 .product-page {
   padding: 40px;
   display: flex;
@@ -333,8 +335,6 @@ nav ul li hr {
   padding-left: 20px;
 }
 
-
-
 .related-products-section {
   margin-top: 40px;
   width: 100%;
@@ -355,7 +355,7 @@ nav ul li hr {
 }
 
 .related-product-card {
-  min-width: 120px; /* smaller width */
+  min-width: 120px;
   border: 1px solid #eee;
   border-radius: 8px;
   padding: 40px 15px;
@@ -372,8 +372,8 @@ nav ul li hr {
 
 .related-product-card img {
   width: 100%;
-  height: 360px; /* fixed height for small card */
-  object-fit: cover; /* make image cover entire area */
+  height: 360px;
+  object-fit: cover;
   border-radius: 6px;
 }
 
@@ -388,7 +388,6 @@ nav ul li hr {
   color: #e53935;
   font-size: 13px;
 }
-
 
 .wishlist-message {
   margin: 15px 0;
