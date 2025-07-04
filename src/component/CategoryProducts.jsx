@@ -21,8 +21,8 @@ const CategoryProducts = () => {
 
   const handleAddToWishlist = (product) => {
     addToWishlist(product);
-    setWishlistMessage(`${product.name} added to wishlist!`);
-    setTimeout(() => setWishlistMessage(""), 2000);
+    setWishlistMessage(`Added to wishlist!`);
+    setTimeout(() => setWishlistMessage(""), 1000);
   };
 
   return (

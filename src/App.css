@@ -358,7 +358,7 @@ nav ul li hr {
   min-width: 120px; /* smaller width */
   border: 1px solid #eee;
   border-radius: 8px;
-  padding: 8px;
+  padding: 40px 15px;
   background: #fff;
   text-align: center;
   transition: all 0.3s;
@@ -372,7 +372,7 @@ nav ul li hr {
 
 .related-product-card img {
   width: 100%;
-  height: 400px; /* fixed height for small card */
+  height: 360px; /* fixed height for small card */
   object-fit: cover; /* make image cover entire area */
   border-radius: 6px;
 }
