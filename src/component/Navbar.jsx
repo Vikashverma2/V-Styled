@@ -6,12 +6,14 @@ import { GoPerson } from "react-icons/go";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
 import { WishlistContext } from "../Context/WishlistContext";
-import { AuthContext } from "../Context/AuthContext"; // ✅ import auth context
+import { AuthContext } from "../Context/AuthContext";
+import { CartContext } from "../Context/CartContext"; // ✅ import
 
 export const Navbar = () => {
   const location = useLocation();
   const { wishlist } = useContext(WishlistContext);
-  const { isLoggedIn, user } = useContext(AuthContext); // ✅ use here
+  const { isLoggedIn, user } = useContext(AuthContext);
+  const { cartItems } = useContext(CartContext); // ✅ get cart items
 
   const isActive = (path) => location.pathname.includes(path);
 
@@ -70,7 +72,9 @@ export const Navbar = () => {
                 <PiShoppingCartSimpleLight />
               </Link>
             </div>
-            <div className="nav-cart-count">0</div>
+            {cartItems.length > 0 && (
+              <div className="nav-cart-count">{cartItems.length}</div>
+            )}
           </div>
         </div>
       </nav>

@@ -4,6 +4,7 @@ import AllProducts from "../data/All_Product";
 import { Footer } from "../pages/homePage/Footer";
 import { WishlistContext } from "../Context/WishlistContext";
 import { AuthContext } from "../Context/AuthContext";
+import { CartContext } from "../Context/CartContext";
 
 const CategoryProducts = () => {
   const { productId } = useParams();
@@ -13,6 +14,7 @@ const CategoryProducts = () => {
 
   const { addToWishlist } = useContext(WishlistContext);
   const { isLoggedIn } = useContext(AuthContext);
+  const { addToCart } = useContext(CartContext);
 
   const product = AllProducts.find((item) => item.id === parseInt(productId));
 
@@ -28,6 +30,11 @@ const CategoryProducts = () => {
       setWishlistMessage(`Added to wishlist!`);
       setTimeout(() => setWishlistMessage(""), 1500);
     }
+  };
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    alert(`${product.name} added to cart!`);
   };
 
   return (
@@ -66,7 +73,7 @@ const CategoryProducts = () => {
             )}
 
             <div className="add-buttons">
-              <button className="btn-cart">🛒 Add to Cart</button>
+              <button onClick={() => handleAddToCart(product)} className="btn-cart">🛒 Add to Cart</button>
               <button onClick={() => handleAddToWishlist(product)} className="btn-wishlist">❤️ Add to Wishlist</button>
             </div>
 

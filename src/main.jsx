@@ -5,13 +5,16 @@ import App from "./App.jsx";
 import ShopContextProvider from "./Context/ShopContext.jsx";
 import { AuthProvider } from "./Context/AuthContext.jsx";
 import { WishlistProvider } from "./Context/WishlistContext.jsx";
+import { CartProvider } from "./Context/CartContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ShopContextProvider>
       <AuthProvider>
         <WishlistProvider>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>
         </WishlistProvider>
       </AuthProvider>
     </ShopContextProvider>
