@@ -8,6 +8,7 @@ export const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
 
   // Load wishlist from localStorage based on user email
+  
   useEffect(() => {
     if (user?.email) {
       const saved = JSON.parse(localStorage.getItem(`wishlist_${user.email}`));

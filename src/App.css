@@ -402,6 +402,20 @@ nav ul li hr {
   animation: fadeInOut 2s forwards;
 }
 
+.cart-message {
+  margin: 15px 0;
+  padding: 12px 20px;
+  background-color: #e6f4ff; /* light blue background */
+  color: #095c91;            /* dark blue text */
+  border: 1px solid #91d5ff; /* light blue border */
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  animation: fadeInOut 2s forwards;
+}
+
+
 @keyframes fadeInOut {
   0% { opacity: 0; }
   10% { opacity: 1; }

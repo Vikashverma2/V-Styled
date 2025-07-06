@@ -1,42 +1,54 @@
 import React, { useContext, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import HomepageProductData from "../data/HomePage_Product";
 import { Footer } from "../pages/homePage/Footer";
 import { WishlistContext } from "../Context/WishlistContext";
+import { AuthContext } from "../Context/AuthContext";
+import { CartContext } from "../Context/CartContext";
 
 const HomePageProduct = () => {
   const { productId } = useParams();
+  const navigate = useNavigate();
   const [pincode, setPincode] = useState("");
   const [wishlistMessage, setWishlistMessage] = useState("");
-
+  const [cartMessage, setCartMessage] = useState("");
 
   const product = HomepageProductData.find(
     (item) => item.id === parseInt(productId)
   );
 
+  const { addToWishlist } = useContext(WishlistContext);
+  const { isLoggedIn } = useContext(AuthContext);
+  const { addToCart } = useContext(CartContext);
+
   if (!product) {
     return <h2>Product not found!</h2>;
   }
 
-  const relatedProducts = HomepageProductData.filter(
-    (item) => item.id !== product.id
-  ).slice(0, 4);
-
-
-   const { addToWishlist } = useContext(WishlistContext);
-  
-    const handleAddToWishlist = (product) => {
+  const handleAddToWishlist = (product) => {
+    if (!isLoggedIn) {
+      navigate("/auth");
+    } else {
       addToWishlist(product);
       setWishlistMessage(`Added to wishlist!`);
       setTimeout(() => setWishlistMessage(""), 1000);
-    };
+    }
+  };
+
+  const handleAddToCart = (product) => {
+    if (!isLoggedIn) {
+      navigate("/auth");
+    } else {
+      addToCart(product);
+      setCartMessage(`Added to Cart!`);
+      setTimeout(() => setCartMessage(""), 1500);
+    }
+  };
 
   return (
     <>
       <div className="product-page">
         <div className="product-page-container">
-          {/* Left side image */}
-
           <div className="product-image-section">
             <img
               className="product-page-image"
@@ -45,13 +57,9 @@ const HomePageProduct = () => {
             />
           </div>
 
-          {/* Right side details */}
-
           <div className="product-details-section">
             <h1 className="product-name">{product.name}</h1>
-            <p className="product-short-description">
-              {product.shortDescription}
-            </p>
+            <p className="product-short-description">{product.shortDescription}</p>
             <div className="product-reviews">
               Reviews: {product.reviewCount} <span>⭐ {product.stars}</span>
             </div>
@@ -71,18 +79,30 @@ const HomePageProduct = () => {
                 ))}
               </div>
             </div>
-              {wishlistMessage && (
+
+            {wishlistMessage && (
               <div className="wishlist-message">{wishlistMessage}</div>
             )}
 
+            {cartMessage && (
+              <div className="cart-message">{cartMessage}</div>
+            )}
+
             <div className="add-buttons">
-              <button className="btn-cart">🛒 Add to Cart</button>
               <button
-              onClick={() => handleAddToWishlist(product)} 
-              className="btn-wishlist">❤️ Add to Wishlist</button>
+                onClick={() => handleAddToCart(product)}
+                className="btn-cart"
+              >
+                🛒 Add to Cart
+              </button>
+              <button
+                onClick={() => handleAddToWishlist(product)}
+                className="btn-wishlist"
+              >
+                ❤️ Add to Wishlist
+              </button>
             </div>
 
-            {/* Delivery Options Section */}
             <div className="delivery-options">
               <h3>DELIVERY OPTIONS 🚚</h3>
               <div className="pincode-check">
@@ -95,8 +115,7 @@ const HomePageProduct = () => {
                 <button>Check</button>
               </div>
               <p className="pincode-note">
-                Please enter PIN code to check delivery time & Pay on Delivery
-                availability
+                Please enter PIN code to check delivery time & Pay on Delivery availability
               </p>
               <ul className="delivery-list">
                 <li>100% Original Products</li>
@@ -105,9 +124,7 @@ const HomePageProduct = () => {
               </ul>
             </div>
 
-            <p className="product-full-description">
-              {product.fullDescription}
-            </p>
+            <p className="product-full-description">{product.fullDescription}</p>
 
             <ul className="product-extra-details">
               <h2>Products Details</h2>
@@ -117,8 +134,6 @@ const HomePageProduct = () => {
             </ul>
           </div>
         </div>
-
-        {/* Related Products Section (below) */}
 
         <div className="related-products-section">
           <h2>Related Products</h2>

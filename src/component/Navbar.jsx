@@ -7,15 +7,21 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
 import { WishlistContext } from "../Context/WishlistContext";
 import { AuthContext } from "../Context/AuthContext";
-import { CartContext } from "../Context/CartContext"; // ✅ import
+import { CartContext } from "../Context/CartContext";
 
 export const Navbar = () => {
   const location = useLocation();
   const { wishlist } = useContext(WishlistContext);
   const { isLoggedIn, user } = useContext(AuthContext);
-  const { cartItems } = useContext(CartContext); // ✅ get cart items
+  const { cartItems, isLoading } = useContext(CartContext);
+
+  if (isLoading) {
+    return null; // ya loader show karo
+  }
 
   const isActive = (path) => location.pathname.includes(path);
+
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <div className="navbar">
@@ -72,8 +78,8 @@ export const Navbar = () => {
                 <PiShoppingCartSimpleLight />
               </Link>
             </div>
-            {cartItems.length > 0 && (
-              <div className="nav-cart-count">{cartItems.length}</div>
+            {totalQuantity > 0 && (
+              <div className="nav-cart-count">{totalQuantity}</div>
             )}
           </div>
         </div>

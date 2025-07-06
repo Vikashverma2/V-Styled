@@ -23,6 +23,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
+    const email = localStorage.getItem("user_email");
+    if (email) {
+      localStorage.removeItem(`cartItems_${email}`);
+    }
     localStorage.removeItem("user_name");
     localStorage.removeItem("user_email");
     setIsLoggedIn(false);

@@ -1,31 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import "./Cart.css";
 
 const CartPage = () => {
-  const { cartItems, removeFromCart } = useContext(CartContext);
-
-  const [quantities, setQuantities] = useState(
-    cartItems.reduce((acc, item) => ({ ...acc, [item.id]: 1 }), {})
-  );
-
-  const handleQuantityChange = (id, type) => {
-    setQuantities((prev) => {
-      const newQty = type === "increase" ? prev[id] + 1 : prev[id] - 1;
-      if (newQty < 1) {
-        removeFromCart(id);
-        const updated = { ...prev };
-        delete updated[id];
-        return updated;
-      } else {
-        return { ...prev, [id]: newQty };
-      }
-    });
-  };
+  const { cartItems, removeFromCart, addToCart, decreaseQuantity } = useContext(CartContext);
 
   const subtotal = cartItems.reduce(
-    (sum, item) => sum + item.new_price * (quantities[item.id] || 1),
+    (sum, item) => sum + item.new_price * item.quantity,
     0
   );
 
@@ -51,22 +33,15 @@ const CartPage = () => {
                 <p>Category: <span className="light">{item.category || "General"}</span></p>
                 <p>Color: <span className="light">{item.color || "Default"}</span></p>
               </div>
-              <p className="item-price">₹{(item.new_price * (quantities[item.id] || 1)).toFixed(2)}</p>
+              <p className="item-price">₹{(item.new_price * item.quantity).toFixed(2)}</p>
               <div className="quantity-controls">
-                <button onClick={() => handleQuantityChange(item.id, "decrease")}>−</button>
-                <span>{quantities[item.id]}</span>
-                <button onClick={() => handleQuantityChange(item.id, "increase")}>+</button>
+                <button onClick={() => decreaseQuantity(item.id)}>−</button>
+                <span>{item.quantity}</span>
+                <button onClick={() => addToCart(item)}>+</button>
               </div>
               <button
                 className="delete-btn"
-                onClick={() => {
-                  removeFromCart(item.id);
-                  setQuantities((prev) => {
-                    const updated = { ...prev };
-                    delete updated[item.id];
-                    return updated;
-                  });
-                }}
+                onClick={() => removeFromCart(item.id)}
               >
                 <RiDeleteBin6Line />
               </button>

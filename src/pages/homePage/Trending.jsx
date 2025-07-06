@@ -1,30 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./HomePage.css";
-import { TbShoppingCartPlus } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-import HomepageProduct from "../../data/HomePage_Product"; 
+import HomepageProduct from "../../data/HomePage_Product";
+import { CartContext } from "../../Context/CartContext";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Trending = () => {
   const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const [trendingProducts, setTrendingProducts] = useState([]);
+
+  useEffect(() => {
+    filterTrendingProduct();
+  }, []);
+
+  const filterTrendingProduct = () => {
+    var products = HomepageProduct.filter((a) => a.page === "TrendingProduct");
+    setTrendingProducts(products);
+  };
 
   const handleProductClick = (productId) => {
     navigate(`/product/${productId}`);
   };
 
-  useEffect(() => {
-    filterTrandingProduct();
-  },[]);
-
-  const filterTrandingProduct = () => {
-    var products = HomepageProduct.filter((a) => a.page === "TrendingProduct");
-    setTrendingProducts(products);
+  const handleAddToCart = (e, product) => {
+    e.stopPropagation();
+    if (!isLoggedIn) {
+      navigate("/auth");
+    } else {
+      addToCart(product);
+      navigate("/cart"); // ✅ direct cart page pe le jao
+    }
   };
 
   return (
     <div className="trending-products-container">
-      { trendingProducts.map((product) => (
+      {trendingProducts.map((product) => (
         <div
           onClick={() => handleProductClick(product.id)}
           className="trending-product"
@@ -39,7 +52,7 @@ const Trending = () => {
                 ₹{product.old_price}
               </span>
             </p>
-            <button> Add to Cart</button>
+            <button onClick={(e) => handleAddToCart(e, product)}>Buy Now</button>
           </div>
         </div>
       ))}

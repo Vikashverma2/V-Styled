@@ -10,6 +10,7 @@ const CategoryProducts = () => {
   const { productId } = useParams();
   const [pincode, setPincode] = useState("");
   const [wishlistMessage, setWishlistMessage] = useState("");
+  const [cartMessage, setCartMessage] = useState(""); // ✅ new message state
   const navigate = useNavigate();
 
   const { addToWishlist } = useContext(WishlistContext);
@@ -32,10 +33,16 @@ const CategoryProducts = () => {
     }
   };
 
-  const handleAddToCart = (product) => {
+ const handleAddToCart = (product) => {
+  if (!isLoggedIn) {
+    navigate("/auth");
+  } else {
     addToCart(product);
-    alert(`${product.name} added to cart!`);
-  };
+    setCartMessage(`Added to Cart!`);
+    setTimeout(() => setCartMessage(""), 1500);
+  }
+};
+
 
   return (
     <>
@@ -70,6 +77,10 @@ const CategoryProducts = () => {
 
             {wishlistMessage && (
               <div className="wishlist-message">{wishlistMessage}</div>
+            )}
+
+            {cartMessage && (
+              <div className="cart-message">{cartMessage}</div>
             )}
 
             <div className="add-buttons">
