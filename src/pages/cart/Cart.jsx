@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
 const CartPage = () => {
   const { cartItems, removeFromCart, addToCart, decreaseQuantity } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.new_price * item.quantity,
@@ -16,6 +18,10 @@ const CartPage = () => {
   const discount = 38;
   const service = 1;
   const total = subtotal + delivery + taxes + service - discount;
+
+  const handleCheckout = () => {
+    navigate("/checkout");
+  };
 
   return (
     <div className="cart-container">
@@ -78,7 +84,7 @@ const CartPage = () => {
             <strong>Total</strong>
             <strong>₹{total.toFixed(2)}</strong>
           </div>
-          <button className="checkout-btn">Checkout →</button>
+          <button className="checkout-btn" onClick={handleCheckout}>Checkout →</button>
         </div>
       )}
     </div>

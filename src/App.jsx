@@ -21,6 +21,7 @@ import UserProfile from "./pages/profile/UserProfile";
 import ProductPage from "./component/HomePageProduct";
 
 import CategoryProducts from "./component/CategoryProducts";
+import CheckoutPage from "./pages/cart/CheckoutPage";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/user-profile" element={<UserProfile/ >} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<CheckoutPage/>} />
         </Routes>
       </BrowserRouter>
     </>
