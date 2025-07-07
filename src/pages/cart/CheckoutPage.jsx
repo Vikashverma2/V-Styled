@@ -90,7 +90,7 @@ const CheckoutPage = () => {
                     </strong>
                   </p>
                   <p>
-                    {addressInfo.address}, {addressInfo.city} {addressInfo.zip}
+                    {addressInfo.address} {addressInfo.city}, {addressInfo.state}, {addressInfo.zip}
                   </p>
                   <p>{addressInfo.mobile}</p>
                   <p>{addressInfo.email}</p>
@@ -140,6 +140,14 @@ const CheckoutPage = () => {
                     />
                     <input
                       type="text"
+                      name="state"
+                      placeholder="State *"
+                      value={addressInfo.state}
+                      onChange={handleInputChange}
+                      required
+                    />
+                    <input
+                      type="text"
                       name="zip"
                       placeholder="Zip Code *"
                       value={addressInfo.zip}
@@ -150,10 +158,9 @@ const CheckoutPage = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email *"
+                    placeholder="Email"
                     value={addressInfo.email}
                     onChange={handleInputChange}
-                    required
                   />
                   <input
                     type="text"
@@ -180,18 +187,21 @@ const CheckoutPage = () => {
               <h2>Payment Details</h2>
               <div className="payment-options">
                 <label>
-                  <input type="radio" value="cod" checked={paymentMethod === "cod"} onChange={() => setPaymentMethod("cod")} />
-                  Cash on Delivery
+                  <input type="radio" value="online" checked={paymentMethod === "online"} onChange={() => setPaymentMethod("online")} />
+                  UPI
                 </label>
                 <label>
                   <input type="radio" value="card" checked={paymentMethod === "card"} onChange={() => setPaymentMethod("card")} />
                   Credit / Debit Card
                 </label>
+                <label>
+                  <input type="radio" value="cod" checked={paymentMethod === "cod"} onChange={() => setPaymentMethod("cod")} />
+                  Cash on Delivery
+                </label>
               </div>
 
               {paymentMethod === "card" && (
                 <>
-                  <input type="email" placeholder="Email *" required />
                   <input type="text" placeholder="Card Holder Name *" required />
                   <input type="text" placeholder="Card Number *" required />
                   <div className="input-row">
