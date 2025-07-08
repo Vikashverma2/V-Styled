@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../App.css";
 import logov from "/src/assets/logoV.png";
 import { PiShoppingCartSimpleLight } from "react-icons/pi";
@@ -15,12 +15,13 @@ export const Navbar = () => {
   const { isLoggedIn, user } = useContext(AuthContext);
   const { cartItems, isLoading } = useContext(CartContext);
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
   if (isLoading) {
-    return null; // ya loader show karo
+    return null; // or show loader
   }
 
   const isActive = (path) => location.pathname.includes(path);
-
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -32,21 +33,21 @@ export const Navbar = () => {
           </div>
         </Link>
 
-        <ul>
+        <ul className={menuOpen ? "nav-links open" : "nav-links"}>
           <li>
-            <Link to="/mens">Men {isActive("/mens") && <hr />}</Link>
+            <Link to="/mens" onClick={() => setMenuOpen(false)}>Men {isActive("/mens") && <hr />}</Link>
           </li>
           <li>
-            <Link to="/womens">Women {isActive("/womens") && <hr />}</Link>
+            <Link to="/womens" onClick={() => setMenuOpen(false)}>Women {isActive("/womens") && <hr />}</Link>
           </li>
           <li>
-            <Link to="/kids">Kids {isActive("/kids") && <hr />}</Link>
+            <Link to="/kids" onClick={() => setMenuOpen(false)}>Kids {isActive("/kids") && <hr />}</Link>
           </li>
           <li>
-            <Link to="/accessories">Accessories {isActive("/accessories") && <hr />}</Link>
+            <Link to="/accessories" onClick={() => setMenuOpen(false)}>Accessories {isActive("/accessories") && <hr />}</Link>
           </li>
           <li>
-            <Link to="/about">About {isActive("/about") && <hr />}</Link>
+            <Link to="/about" onClick={() => setMenuOpen(false)}>About {isActive("/about") && <hr />}</Link>
           </li>
         </ul>
 
@@ -82,6 +83,16 @@ export const Navbar = () => {
               <div className="nav-cart-count">{totalQuantity}</div>
             )}
           </div>
+        </div>
+
+        {/* Hamburger button */}
+        <div
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
       <hr className="nav-hr" />

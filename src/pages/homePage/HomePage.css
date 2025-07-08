@@ -52,10 +52,10 @@
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  
   border-radius: 10px;
   transition: 0.3s ease-in-out;
-  position: relative;
   overflow: hidden;
   padding: 8% 10%;
 }
@@ -436,4 +436,139 @@
 .footer-link-payment {
   display: flex;
   gap: 10px;
+}
+
+/* Existing styles stay as they are */
+
+@media (max-width: 1200px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-content img {
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  .trending-products-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .new-arrivals-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .selling-product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .phone-app-card {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .phone-des {
+    padding: 20px;
+  }
+  .phone-img img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 32px;
+  }
+  .hero-text p {
+    font-size: 16px;
+  }
+  .offer-banner-content h1 {
+    font-size: 2rem;
+  }
+  .offer-banner-content h3 {
+    font-size: 1.2rem;
+  }
+  .offer-banner-content p {
+    font-size: 0.9rem;
+  }
+
+  .trending-products-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .new-arrivals-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .selling-product-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cloth-banner {
+    flex-direction: column;
+  }
+  .men-banner,
+  .women-kid-banner img {
+    width: 100%;
+  }
+  .women-kid-banner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .phone-des h1 {
+    font-size: 2rem;
+  }
+  .phone-des h3 {
+    font-size: 1.5rem;
+  }
+
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-link {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 24px;
+  }
+  .hero-text p {
+    font-size: 14px;
+  }
+  .hero-text button {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .offer-banner {
+    height: auto;
+    padding: 5% 4%;
+  }
+  .offer-banner-content {
+    padding: 10% 5%;
+  }
+
+  .trending-products-container {
+    grid-template-columns: 1fr;
+  }
+
+  .new-arrivals-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cloth-banner {
+    flex-direction: column;
+  }
+  .women-kid-banner {
+    flex-direction: column;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+  }
 }
