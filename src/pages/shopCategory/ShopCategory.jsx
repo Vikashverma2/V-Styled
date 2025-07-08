@@ -78,12 +78,12 @@ export const ShopCategory = (props) => {
       <div className='shopcategory-products'>
         {visibleProducts.map((product) => (
           <div onClick={() => handleProductClick(product.id, product.name)} 
-          key={product.id} className='product-card'>
+          key={product.id} className='shopcategory-product-card'>
             <img src={product.image} alt={product.name} />
-            <div className='product-details'>
+            <div className='shopcategory-product-details'>
               <h4>{product.name}</h4>
               <p>{product.shortDescription}</p>
-              <p className='product-price'>
+              <p className='shopcategory-product-price'>
                 ₹{product.new_price}
                 <span style={{ textDecoration: "line-through", color: "gray" }}>
                   ₹{product.old_price}
