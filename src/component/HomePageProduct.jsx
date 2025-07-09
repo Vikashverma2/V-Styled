@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import HomepageProductData from "../data/HomePage_Product";
 import { Footer } from "../pages/homePage/Footer";
@@ -12,7 +12,6 @@ const HomePageProduct = () => {
   const [pincode, setPincode] = useState("");
   const [wishlistMessage, setWishlistMessage] = useState("");
   const [cartMessage, setCartMessage] = useState("");
-
   const product = HomepageProductData.find(
     (item) => item.id === parseInt(productId)
   );
@@ -36,15 +35,29 @@ const HomePageProduct = () => {
   };
 
   const handleAddToCart = (product) => {
+
+    var newProducts = {
+        id: product.id,
+        page: product.page,
+        name: product.name,
+        category: product.category,
+        image: product.image,
+        new_price: product.new_price,
+        old_price: product.old_price,
+        size: selectedSize
+      };
+
+
+
     if (!isLoggedIn) {
       navigate("/auth");
     } else {
-      addToCart(product);
+      addToCart(newProducts);
       setCartMessage(`Added to Cart!`);
       setTimeout(() => setCartMessage(""), 1500);
     }
   };
-
+  const [selectedSize, setSelectedSize] = useState(product.size[0]);
   return (
     <>
       <div className="product-page">
@@ -59,7 +72,9 @@ const HomePageProduct = () => {
 
           <div className="product-details-section">
             <h1 className="product-name">{product.name}</h1>
-            <p className="product-short-description">{product.shortDescription}</p>
+            <p className="product-short-description">
+              {product.shortDescription}
+            </p>
             <div className="product-reviews">
               Reviews: {product.reviewCount} <span>⭐ {product.stars}</span>
             </div>
@@ -73,7 +88,15 @@ const HomePageProduct = () => {
               <p>Size:</p>
               <div className="size-options">
                 {product.size.map((sz, index) => (
-                  <button key={index} className="size-box">
+                  <button
+                    onClick={() => {
+                      setSelectedSize(sz);
+                    }}
+                    key={index}
+                    className={
+                      selectedSize == sz ? "size-box-selected" : "size-box"
+                    }
+                  >
                     {sz}
                   </button>
                 ))}
@@ -84,9 +107,7 @@ const HomePageProduct = () => {
               <div className="wishlist-message">{wishlistMessage}</div>
             )}
 
-            {cartMessage && (
-              <div className="cart-message">{cartMessage}</div>
-            )}
+            {cartMessage && <div className="cart-message">{cartMessage}</div>}
 
             <div className="add-buttons">
               <button
@@ -115,7 +136,8 @@ const HomePageProduct = () => {
                 <button>Check</button>
               </div>
               <p className="pincode-note">
-                Please enter PIN code to check delivery time & Pay on Delivery availability
+                Please enter PIN code to check delivery time & Pay on Delivery
+                availability
               </p>
               <ul className="delivery-list">
                 <li>100% Original Products</li>
@@ -124,7 +146,9 @@ const HomePageProduct = () => {
               </ul>
             </div>
 
-            <p className="product-full-description">{product.fullDescription}</p>
+            <p className="product-full-description">
+              {product.fullDescription}
+            </p>
 
             <ul className="product-extra-details">
               <h2>Products Details</h2>

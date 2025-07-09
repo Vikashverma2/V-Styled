@@ -38,6 +38,7 @@ const CartPage = () => {
                 <h3>{item.name}</h3>
                 <p>Category: <span className="light">{item.category || "General"}</span></p>
                 <p>Color: <span className="light">{item.color || "Default"}</span></p>
+                <p>Size: <span className="light">{item.size || "Free"}</span></p>
               </div>
               <p className="item-price">₹{(item.new_price * item.quantity).toFixed(2)}</p>
               <div className="quantity-controls">

@@ -324,6 +324,14 @@ nav ul li a:hover {
   border-radius: 4px;
   transition: all 0.2s;
 }
+.size-box-selected {
+  padding: 8px 14px;
+  background-color: #e43935;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  color: white;
+}
 
 .size-box:hover {
   border-color: #111;

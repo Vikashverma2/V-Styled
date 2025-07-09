@@ -13,18 +13,22 @@ const CategoryProducts = () => {
   const [cartMessage, setCartMessage] = useState(""); // ✅ new message state
   const navigate = useNavigate();
 
+  
+  
   const { addToWishlist } = useContext(WishlistContext);
   const { isLoggedIn } = useContext(AuthContext);
   const { addToCart } = useContext(CartContext);
-
+  
   const product = AllProducts.find((item) => item.id === parseInt(productId));
+  const [selectedSize, setSelectedSize] = useState(product.size[0]);
 
   if (!product) {
     return <h2>Product not found!</h2>;
   }
 
   const handleAddToWishlist = (product) => {
-    if (!isLoggedIn) {
+
+     if (!isLoggedIn) {
       navigate("/auth");
     } else {
       addToWishlist(product);
@@ -34,10 +38,22 @@ const CategoryProducts = () => {
   };
 
  const handleAddToCart = (product) => {
+
+   var newProducts = {
+        id: product.id,
+        page: product.page,
+        name: product.name,
+        category: product.category,
+        image: product.image,
+        new_price: product.new_price,
+        old_price: product.old_price,
+        size: selectedSize
+      };
+
   if (!isLoggedIn) {
     navigate("/auth");
   } else {
-    addToCart(product);
+    addToCart(newProducts);
     setCartMessage(`Added to Cart!`);
     setTimeout(() => setCartMessage(""), 1500);
   }
@@ -70,7 +86,13 @@ const CategoryProducts = () => {
               <p>Size:</p>
               <div className="size-options">
                 {product.size.map((sz, index) => (
-                  <button key={index} className="size-box">{sz}</button>
+                  <button
+                  onClick={()=> {
+                    setSelectedSize(sz);
+                  }}
+                  key={index} className={
+                    selectedSize == sz ? "size-box-selected" : "size-box"
+                   } >{sz}</button>
                 ))}
               </div>
             </div>
