@@ -225,6 +225,8 @@ nav ul li a:hover {
 }
 
 /* ---------------------- Product Page ---------------------- */
+
+
 .product-page {
   padding: 40px;
   display: flex;
@@ -269,6 +271,11 @@ nav ul li a:hover {
   font-size: 16px;
 }
 
+.product-reviews {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
 .product-price {
   margin: 15px 0;
   font-size: 24px;
@@ -288,9 +295,50 @@ nav ul li a:hover {
   font-size: 18px;
 }
 
+.availability {
+  color: #28a745;
+  font-weight: 500;
+  margin: 5px 0 15px 0;
+}
+
+.product-size {
+  margin: 20px 0;
+}
+
+.product-size p {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.size-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.size-box {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.size-box:hover {
+  border-color: #111;
+  background: #fff;
+}
+
+.add-buttons {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
 .btn-cart,
 .btn-wishlist {
-  padding: 12px 24px;
+  padding: 12px 20px;
   border: none;
   cursor: pointer;
   font-size: 15px;
@@ -319,7 +367,94 @@ nav ul li a:hover {
   transform: translateY(-2px);
 }
 
+.wishlist-message,
+.cart-message {
+  margin-top: 10px;
+  color: #28a745;
+  font-weight: 500;
+}
+
+.delivery-options {
+  margin: 25px 0;
+}
+
+.delivery-options h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.pincode-check {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.pincode-check input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  flex: 1;
+  border-radius: 4px;
+}
+
+.pincode-check button {
+  padding: 8px 14px;
+  border: none;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pincode-check button:hover {
+  background: #333;
+}
+
+.pincode-note {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.delivery-list {
+  list-style: disc inside;
+  color: #555;
+  font-size: 14px;
+}
+
+.product-full-description {
+  margin-top: 20px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.product-extra-details {
+  margin-top: 20px;
+}
+
+.product-extra-details h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.product-extra-details li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* ---------------- Related Products ---------------- */
+.related-products-section {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 40px;
+}
+
+.related-products-section h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
 .related-products-list {
+  
   display: flex;
   gap: 15px;
   overflow-x: auto;
@@ -328,14 +463,15 @@ nav ul li a:hover {
 }
 
 .related-product-card {
-  min-width: 120px;
+  min-width: 160px;
   border: 1px solid #eee;
   border-radius: 8px;
-  padding: 40px 15px;
+  padding: 15px 10px;
   background: #fff;
   text-align: center;
   transition: all 0.3s;
   flex-shrink: 0;
+   text-decoration: none;
 }
 
 .related-product-card:hover {
@@ -345,12 +481,27 @@ nav ul li a:hover {
 
 .related-product-card img {
   width: 100%;
-  height: 360px;
+  height: 340px;
   object-fit: cover;
   border-radius: 6px;
 }
 
-/* ---------------------- Product Page Responsive ---------------------- */
+.related-name {
+  margin: 10px 0 5px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+ 
+}
+
+.related-price {
+  color: #e53935;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ---------------- Responsive ---------------- */
+
 @media (max-width: 992px) {
   .product-page-container {
     flex-direction: column;
@@ -378,7 +529,6 @@ nav ul li a:hover {
 @media (max-width: 768px) {
   .product-page {
     padding: 20px;
-    margin: 0;
   }
 
   .product-name {
@@ -387,13 +537,17 @@ nav ul li a:hover {
 
   .product-short-description {
     font-size: 14px;
-    gap: 10px;
   }
 
   .product-price {
     font-size: 18px;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .add-buttons {
+    flex-direction: column;
+    width: 100%;
   }
 
   .btn-cart,
@@ -405,8 +559,7 @@ nav ul li a:hover {
   }
 
   .related-product-card img {
-    height: 200px;
-    
+    height: 180px;
   }
 }
 
@@ -427,27 +580,25 @@ nav ul li a:hover {
   .btn-wishlist {
     font-size: 13px;
   }
-  .related-products-list {
-    display: inline;
-    padding: 0;
-   
 
+  .related-products-list {
+    flex-direction: column;
+    gap: 15px;
+    overflow-x: visible;
+    padding: 0;
   }
 
   .related-product-card {
-    min-width: 50px;
-     margin: 0;
-    
-    /* display: none; */
-  }
-   .related-product-card img {
-    height: 400px;
-    
+    width: 100%;
+    min-width: auto;
   }
 
+  .related-product-card img {
+    height: 450px;
+  }
 }
 
-/* ---------------------- Animation ---------------------- */
+/* ---------------- Animation ---------------- */
 @keyframes fadeInOut {
   0% { opacity: 0; }
   10% { opacity: 1; }

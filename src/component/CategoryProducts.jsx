@@ -121,6 +121,7 @@ const CategoryProducts = () => {
         </div>
 
         {/* Related Products Section */}
+        
         <div className="related-products-section">
           <h2>Related Products</h2>
           <div className="related-products-list">
