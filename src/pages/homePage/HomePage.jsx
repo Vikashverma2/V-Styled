@@ -1,22 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./HomePage.css";
 import bgg from "../../assets/bgg.jpg";
 import app from "../../assets/app.png";
 import appstore from "../../assets/app-store.svg";
 import playstore from "../../assets/play-store.svg";
 
-
 import Trending from "./Trending";
-import menbanner from "../../assets/men-banner.webp";
+import menbanner from "../../assets/men-banner.jpg";
 import womenbanner from "../../assets/women-banner.webp";
 import kidbanner from "../../assets/kid-banner.webp";
 // import offerbanner from "../../assets/offer-banner.webp";
 
-
 import SellingProduct from "./SellingProduct";
 import { Footer } from "./Footer";
 import NewArrivals from "./NewArrivals";
-
 
 export const HomePage = () => {
   return (
@@ -68,24 +66,30 @@ export const HomePage = () => {
 
       {/* Cloth Banner */}
 
-      <div className="cloth-banner">
-        <div className="men-banner">
-          <img src={menbanner} alt="Men Banner" />
-        </div>
-        <div className="women-kid-banner">
-          <img className="women-banner" src={womenbanner} alt="Women Banner" />
-          <img className="kid-banner" src={kidbanner} alt="Kid Banner" />
-        </div>
-      </div>
+   <div className="cloth-banner">
+  <Link to="/mens" className="men-banner">
+    <img src={menbanner} alt="Men Banner" />
+  </Link>
+  <div className="right-banners">
+    <Link to="/kids" className="banner">
+      <img src={kidbanner} alt="Kid Banner" />
+    </Link>
+    <Link to="/womens" className="banner">
+      <img src={womenbanner} alt="Women Banner" />
+    </Link>
+  </div>
+</div>
 
+
+
+    {/* Selling Products */}
 
       <div className="selling-products">
         <h1 className="common-h1">
-        New Arrivals <hr className="common-hr" />
+          New Arrivals <hr className="common-hr" />
         </h1>
-        <NewArrivals/>
+        <NewArrivals />
       </div>
-      
 
       {/* Phone Application */}
 
@@ -108,12 +112,9 @@ export const HomePage = () => {
         </div>
       </div>
 
-    
-     {/* Footer Link */}
+      {/* Footer Link */}
 
-      <Footer/>
-
-
+      <Footer />
     </div>
   );
 };

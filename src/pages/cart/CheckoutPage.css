@@ -23,6 +23,7 @@
 }
 
 /* Common checkout box */
+
 .checkout-box {
   background: #fff;
   border-radius: 10px;
@@ -38,6 +39,7 @@
 }
 
 /* Product details */
+
 .product-details {
   width: 100%;
   display: flex;
@@ -250,80 +252,10 @@
   background: #e85c00;
 }
 
-/* Empty cart message */
+
 .empty-checkout {
   text-align: center;
   font-size: 18px;
   color: #888;
   margin-top: 3rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .checkout-wrapper {
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem;
-  }
-
-  .checkout-left,
-  .checkout-right {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .product-details {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .product-details img {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  .address-form .input-row,
-  .checkout-right .input-row {
-    flex-direction: column;
-    gap: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .checkout-box h2 {
-    font-size: 18px;
-  }
-
-  .product-details h4 {
-    font-size: 14px;
-  }
-
-  .product-details p {
-    font-size: 12px;
-  }
-
-  .summary-item,
-  .summary-total {
-    font-size: 13px;
-  }
-
-  .pay-btn {
-    font-size: 15px;
-    padding: 10px;
-  }
-
-  .success-card {
-    padding: 1.2rem;
-  }
-
-  .checkmark {
-    font-size: 2.5rem;
-  }
-
-  .continue-btn {
-    font-size: 14px;
-    padding: 8px 14px;
-  }
 }
