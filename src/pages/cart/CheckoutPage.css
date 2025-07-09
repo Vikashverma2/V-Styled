@@ -39,20 +39,17 @@
 
 /* Product details */
 .product-details {
-    width: 100%;
+  width: 100%;
   display: flex;
   background-color: #eee;
   border-radius: 10px;
-  
   flex-direction: row;
   justify-content: start;
-
   margin-bottom: 1rem;
+  padding: 10px;
 }
 
 .product-details img {
-    
-  text-align: center;
   width: 100px;
   height: 100px;
   object-fit: contain;
@@ -134,7 +131,8 @@
 }
 
 /* Order summary */
-.summary-item, .summary-total {
+.summary-item,
+.summary-total {
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
@@ -157,17 +155,15 @@
   align-items: center;
   margin-top: 6px;
   font-size: 14px;
-   background-color: #eee;
-   padding: 20px;
-   border-radius: 10px;
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .payment-options input[type="radio"] {
- 
   margin-right: 6px;
-   width: 20px;
-   transform: scale(1.5);
-  
+  width: 20px;
+  transform: scale(1.5);
 }
 
 /* Payment inputs */
@@ -221,7 +217,7 @@
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .checkmark {
@@ -260,4 +256,74 @@
   font-size: 18px;
   color: #888;
   margin-top: 3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .checkout-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  .checkout-left,
+  .checkout-right {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-details img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .address-form .input-row,
+  .checkout-right .input-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-box h2 {
+    font-size: 18px;
+  }
+
+  .product-details h4 {
+    font-size: 14px;
+  }
+
+  .product-details p {
+    font-size: 12px;
+  }
+
+  .summary-item,
+  .summary-total {
+    font-size: 13px;
+  }
+
+  .pay-btn {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .success-card {
+    padding: 1.2rem;
+  }
+
+  .checkmark {
+    font-size: 2.5rem;
+  }
+
+  .continue-btn {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
 }

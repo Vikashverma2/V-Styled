@@ -1,4 +1,4 @@
-/* Base styles */
+/* ---------------------- Base Styles ---------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,6 @@
 
 nav {
   width: 100%;
-  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +22,7 @@ nav {
 
 nav img {
   width: 150px;
-  height: 60px;
+  height: auto;
   cursor: pointer;
 }
 
@@ -38,48 +37,53 @@ nav ul li a {
   text-decoration: none;
   font-size: 20px;
   font-weight: 300;
+  transition: color 0.3s;
 }
 
 nav ul li a:hover {
   color: red;
 }
 
-nav ul li hr {
-  height: 2px;
-  background: red;
-  border: none;
-  width: 100%;
-  border-radius: 40px;
-}
-
 .nav-icons {
   display: flex;
   align-items: center;
-  
-  gap: 30px;
-  font-size: 24px;
+  gap: 25px;
 }
 
 .nav-icon-cart {
-
-  cursor: pointer;
-  font-size: 26px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.nav-cart-count {
+.nav-icon-cart .icon {
+  font-size: 22px;
+  color: #3c3c3c;
+  transition: color 0.3s;
+}
+
+.nav-icon-cart .icon:hover {
+  color: #ff4d6d;
+}
+
+.nav-cart-count,
+.wishlist-count {
   position: absolute;
-  width: 16px;
+  top: -6px;
+  right: -10px;
+  min-width: 16px;
   height: 16px;
+  padding: 0 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 38px;
-   top: 22px;
-   right: 75px;
-  border-radius: 12px;
+  border-radius: 50%;
   font-size: 10px;
   background: red;
   color: white;
+  font-weight: bold;
+  line-height: 1;
 }
 
 .user-name {
@@ -91,30 +95,6 @@ nav ul li hr {
 
 .wishlist-link {
   position: relative;
-  display: inline-block;
-}
-
-.wishlist-count {
-  position: absolute;
-  top: -5px;
-  right: -8px;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  font-size: 9px;
-  background: red;
-  color: white;
-  font-weight: bold;
-  line-height: 1;
-}
-
-.nav-hr {
-  margin: 0px 4%;
-  height: 1px;
 }
 
 .hamburger {
@@ -149,6 +129,17 @@ nav ul li hr {
   list-style: none;
 }
 
+/* ---------------------- Navbar Responsive ---------------------- */
+@media (max-width: 992px) {
+  nav ul li a {
+    font-size: 18px;
+  }
+
+  .user-name {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
@@ -161,6 +152,7 @@ nav ul li hr {
     transition: left 0.3s ease;
     text-align: center;
     gap: 20px;
+    z-index: 998;
   }
 
   .nav-links.open {
@@ -172,29 +164,67 @@ nav ul li hr {
   }
 
   nav ul li a {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .nav-icons {
-    gap: 20px;
-    font-size: 20px;
+    gap: 15px;
   }
 
   nav img {
     width: 120px;
-    height: 50px;
+  }
+
+  .nav-icon-cart .icon {
+    font-size: 20px;
   }
 
   .nav-cart-count,
   .wishlist-count {
-    width: 14px;
+    top: -5px;
+    right: -8px;
+    min-width: 14px;
     height: 14px;
     font-size: 8px;
-    margin-bottom: 30px;
+  }
+
+  .user-name {
+    font-size: 15px;
   }
 }
 
-/* Product Page Styles (already well-structured) */
+@media (max-width: 480px) {
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  .nav-icons {
+    gap: 12px;
+  }
+
+  nav img {
+    width: 100px;
+  }
+
+  .nav-icon-cart .icon {
+    font-size: 18px;
+  }
+
+  .nav-cart-count,
+  .wishlist-count {
+    top: -4px;
+    right: -6px;
+    min-width: 12px;
+    height: 12px;
+    font-size: 7px;
+  }
+
+  .user-name {
+    font-size: 14px;
+  }
+}
+
+/* ---------------------- Product Page ---------------------- */
 .product-page {
   padding: 40px;
   display: flex;
@@ -320,7 +350,7 @@ nav ul li hr {
   border-radius: 6px;
 }
 
-/* Responsive adjustments for Product Page */
+/* ---------------------- Product Page Responsive ---------------------- */
 @media (max-width: 992px) {
   .product-page-container {
     flex-direction: column;
@@ -336,6 +366,10 @@ nav ul li hr {
     font-size: 26px;
   }
 
+  .product-short-description {
+    font-size: 15px;
+  }
+
   .product-price {
     font-size: 20px;
   }
@@ -344,6 +378,7 @@ nav ul li hr {
 @media (max-width: 768px) {
   .product-page {
     padding: 20px;
+    margin: 0;
   }
 
   .product-name {
@@ -352,6 +387,7 @@ nav ul li hr {
 
   .product-short-description {
     font-size: 14px;
+    gap: 10px;
   }
 
   .product-price {
@@ -370,6 +406,7 @@ nav ul li hr {
 
   .related-product-card img {
     height: 200px;
+    
   }
 }
 
@@ -378,17 +415,39 @@ nav ul li hr {
     font-size: 20px;
   }
 
-  .related-product-card {
-    min-width: 100px;
-    padding: 15px 8px;
+  .product-short-description {
+    font-size: 13px;
   }
 
-  .related-product-card img {
-    height: 150px;
+  .product-price {
+    font-size: 16px;
   }
+
+  .btn-cart,
+  .btn-wishlist {
+    font-size: 13px;
+  }
+  .related-products-list {
+    display: inline;
+    padding: 0;
+   
+
+  }
+
+  .related-product-card {
+    min-width: 50px;
+     margin: 0;
+    
+    /* display: none; */
+  }
+   .related-product-card img {
+    height: 400px;
+    
+  }
+
 }
 
-/* Fade animation (keep) */
+/* ---------------------- Animation ---------------------- */
 @keyframes fadeInOut {
   0% { opacity: 0; }
   10% { opacity: 1; }

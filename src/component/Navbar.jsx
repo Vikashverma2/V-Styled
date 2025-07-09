@@ -35,19 +35,29 @@ export const Navbar = () => {
 
         <ul className={menuOpen ? "nav-links open" : "nav-links"}>
           <li>
-            <Link to="/mens" onClick={() => setMenuOpen(false)}>Men {isActive("/mens") && <hr />}</Link>
+            <Link to="/mens" onClick={() => setMenuOpen(false)}>
+              Men {isActive("/mens") && <hr />}
+            </Link>
           </li>
           <li>
-            <Link to="/womens" onClick={() => setMenuOpen(false)}>Women {isActive("/womens") && <hr />}</Link>
+            <Link to="/womens" onClick={() => setMenuOpen(false)}>
+              Women {isActive("/womens") && <hr />}
+            </Link>
           </li>
           <li>
-            <Link to="/kids" onClick={() => setMenuOpen(false)}>Kids {isActive("/kids") && <hr />}</Link>
+            <Link to="/kids" onClick={() => setMenuOpen(false)}>
+              Kids {isActive("/kids") && <hr />}
+            </Link>
           </li>
           <li>
-            <Link to="/accessories" onClick={() => setMenuOpen(false)}>Accessories {isActive("/accessories") && <hr />}</Link>
+            <Link to="/accessories" onClick={() => setMenuOpen(false)}>
+              Accessories {isActive("/accessories") && <hr />}
+            </Link>
           </li>
           <li>
-            <Link to="/about" onClick={() => setMenuOpen(false)}>About {isActive("/about") && <hr />}</Link>
+            <Link to="/about" onClick={() => setMenuOpen(false)}>
+              About {isActive("/about") && <hr />}
+            </Link>
           </li>
         </ul>
 
@@ -64,25 +74,19 @@ export const Navbar = () => {
             )}
           </div>
 
-          <div className="nav-icon-fav">
-            <Link to="/favorite" className="wishlist-link">
-              <IoIosHeartEmpty size={28} />
-              {wishlist.length > 0 && (
-                <span className="wishlist-count">{wishlist.length}</span>
-              )}
-            </Link>
-          </div>
-
-          <div className="nav-icon-card">
-            <div className="nav-icon-cart">
-              <Link to="/cart">
-                <PiShoppingCartSimpleLight />
-              </Link>
-            </div>
-            {totalQuantity > 0 && (
-              <div className="nav-cart-count">{totalQuantity}</div>
+          <Link to="/favorite" className="nav-icon-cart">
+            <IoIosHeartEmpty className="icon" />
+            {wishlist.length > 0 && (
+              <span className="wishlist-count">{wishlist.length}</span>
             )}
-          </div>
+          </Link>
+
+          <Link to="/cart" className="nav-icon-cart">
+            <PiShoppingCartSimpleLight className="icon" />
+            {totalQuantity > 0 && (
+              <span className="nav-cart-count">{totalQuantity}</span>
+            )}
+          </Link>
         </div>
 
         {/* Hamburger button */}
