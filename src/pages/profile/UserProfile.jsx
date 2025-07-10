@@ -11,7 +11,7 @@ const UserProfile = () => {
     <div style={{ textAlign: "center", marginTop: "100px" }}>
       
       <h2>User Profile</h2>
-      <button onClick={handleLogout}>Logout</button>
+      <button className="userProfile-btn" onClick={handleLogout}>Logout</button>
     </div>
   );
 };

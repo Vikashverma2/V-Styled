@@ -47,6 +47,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (id) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
+  
 
   const decreaseQuantity = (id) => {
     setCartItems((prev) =>

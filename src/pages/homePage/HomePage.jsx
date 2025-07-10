@@ -29,7 +29,7 @@ export const HomePage = () => {
             <br />
             which is sometimes troubling.
           </p>
-          <button>Shop Now</button>
+          <Link to="/mens"><button>Shop Now</button></Link>
         </div>
 
         <img src={bgg} alt="" />
@@ -51,7 +51,7 @@ export const HomePage = () => {
           <h3>Winter Clearance Sale</h3>
           <h1>GET 50% OFF</h1>
           <p>Use this code to receive 50% discount off all products</p>
-          <button>Buy Now</button>
+         <Link to="/womens"> <button>Buy Now</button></Link>
         </div>
       </div>
 

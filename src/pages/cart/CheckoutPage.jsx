@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import "./CheckoutPage.css";
 
 const CheckoutPage = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, removeFromCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const [isReturningCustomer, setIsReturningCustomer] = useState(false);
@@ -30,7 +31,9 @@ const CheckoutPage = () => {
   const handlePayment = () => {
     if (!isReturningCustomer) {
       // Check if any field is empty
-      const hasEmpty = Object.values(addressInfo).some((value) => value.trim() === "");
+      const hasEmpty = Object.values(addressInfo).some(
+        (value) => value.trim() === ""
+      );
       if (hasEmpty) {
         alert("Please fill all address fields!");
         return;
@@ -41,7 +44,11 @@ const CheckoutPage = () => {
   };
 
   // Calculate total
-  const subtotal = cartItems.reduce((sum, item) => sum + item.new_price * item.quantity, 0);
+
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.new_price * item.quantity,
+    0
+  );
   const tax = subtotal * 0.1;
   const discount = subtotal * 0.1;
   const shipping = 0;
@@ -61,11 +68,19 @@ const CheckoutPage = () => {
               {cartItems.map((item) => (
                 <div className="product-details" key={item.id}>
                   <img src={item.image} alt={item.name} />
-                  <div>
+                  <div className="checkout-details-cart">
+                    <div>
                     <h4>{item.name}</h4>
-                    <p>Color: {item.color || "Default"}</p>
+                    <p>Size: {item.size}</p>
                     <p>Quantity: {item.quantity}</p>
                     <p className="price">₹{item.new_price * item.quantity}</p>
+                    </div>
+                    <button
+                      className="checkout-delete-btn"
+                      onClick={() => removeFromCart(item.id)}
+                    >
+                      <RiDeleteBin6Line />
+                    </button>
                   </div>
                 </div>
               ))}
@@ -90,7 +105,8 @@ const CheckoutPage = () => {
                     </strong>
                   </p>
                   <p>
-                    {addressInfo.address} {addressInfo.city}, {addressInfo.state}, {addressInfo.zip}
+                    {addressInfo.address} {addressInfo.city},{" "}
+                    {addressInfo.state}, {addressInfo.zip}
                   </p>
                   <p>{addressInfo.mobile}</p>
                   <p>{addressInfo.email}</p>
@@ -102,7 +118,10 @@ const CheckoutPage = () => {
                   </button>
                 </div>
               ) : (
-                <form className="address-form" onSubmit={(e) => e.preventDefault()}>
+                <form
+                  className="address-form"
+                  onSubmit={(e) => e.preventDefault()}
+                >
                   <div className="input-row">
                     <input
                       type="text"
@@ -178,31 +197,65 @@ const CheckoutPage = () => {
           <div className="checkout-right">
             <div className="checkout-box">
               <h2>Order Summary</h2>
-              <div className="summary-item"><span>Subtotal</span><span>₹{subtotal.toFixed(2)}</span></div>
-              <div className="summary-item"><span>Tax (10%)</span><span>₹{tax.toFixed(2)}</span></div>
-              <div className="summary-item"><span>Discount</span><span>−₹{discount.toFixed(2)}</span></div>
-              <div className="summary-item"><span>Shipping</span><span>₹{shipping.toFixed(2)}</span></div>
-              <div className="summary-total"><strong>Total</strong><strong>₹{total.toFixed(2)}</strong></div>
+              <div className="summary-item">
+                <span>Subtotal</span>
+                <span>₹{subtotal.toFixed(2)}</span>
+              </div>
+              <div className="summary-item">
+                <span>Tax (10%)</span>
+                <span>₹{tax.toFixed(2)}</span>
+              </div>
+              <div className="summary-item">
+                <span>Discount</span>
+                <span>−₹{discount.toFixed(2)}</span>
+              </div>
+              <div className="summary-item">
+                <span>Shipping</span>
+                <span>₹{shipping.toFixed(2)}</span>
+              </div>
+              <div className="summary-total">
+                <strong>Total</strong>
+                <strong>₹{total.toFixed(2)}</strong>
+              </div>
 
               <h2>Payment Details</h2>
               <div className="payment-options">
                 <label>
-                  <input type="radio" value="online" checked={paymentMethod === "online"} onChange={() => setPaymentMethod("online")} />
+                  <input
+                    type="radio"
+                    value="online"
+                    checked={paymentMethod === "online"}
+                    onChange={() => setPaymentMethod("online")}
+                  />
                   UPI
                 </label>
                 <label>
-                  <input type="radio" value="card" checked={paymentMethod === "card"} onChange={() => setPaymentMethod("card")} />
+                  <input
+                    type="radio"
+                    value="card"
+                    checked={paymentMethod === "card"}
+                    onChange={() => setPaymentMethod("card")}
+                  />
                   Credit / Debit Card
                 </label>
                 <label>
-                  <input type="radio" value="cod" checked={paymentMethod === "cod"} onChange={() => setPaymentMethod("cod")} />
+                  <input
+                    type="radio"
+                    value="cod"
+                    checked={paymentMethod === "cod"}
+                    onChange={() => setPaymentMethod("cod")}
+                  />
                   Cash on Delivery
                 </label>
               </div>
 
               {paymentMethod === "card" && (
                 <>
-                  <input type="text" placeholder="Card Holder Name *" required />
+                  <input
+                    type="text"
+                    placeholder="Card Holder Name *"
+                    required
+                  />
                   <input type="text" placeholder="Card Number *" required />
                   <div className="input-row">
                     <input type="text" placeholder="Expiry MM/YY *" required />
@@ -211,7 +264,9 @@ const CheckoutPage = () => {
                 </>
               )}
 
-              <button className="pay-btn" onClick={handlePayment}>Pay ₹{total.toFixed(2)}</button>
+              <button className="pay-btn" onClick={handlePayment}>
+                Pay ₹{total.toFixed(2)}
+              </button>
             </div>
           </div>
         </>
@@ -221,7 +276,9 @@ const CheckoutPage = () => {
             <div className="checkmark">✔</div>
             <h3>Your order has been accepted</h3>
             <p>Transaction ID: {Math.floor(Math.random() * 1000000000)}</p>
-            <button className="continue-btn" onClick={() => navigate("/")}>Continue Shopping</button>
+            <button className="continue-btn" onClick={() => navigate("/")}>
+              Continue Shopping
+            </button>
           </div>
         </div>
       )}

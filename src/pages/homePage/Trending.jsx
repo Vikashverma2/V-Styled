@@ -31,7 +31,7 @@ const Trending = () => {
       navigate("/auth");
     } else {
       addToCart(product);
-      navigate("/cart"); // ✅ direct cart page pe le jao
+      navigate("/checkout"); 
     }
   };
 

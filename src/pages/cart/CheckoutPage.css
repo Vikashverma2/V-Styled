@@ -50,6 +50,28 @@
   margin-bottom: 1rem;
   padding: 10px;
 }
+.checkout-details-cart{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.checkout-delete-btn{
+   background: tomato;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
+ height: fit-content;
+ padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  
+}
 
 .product-details img {
   width: 100px;
@@ -258,4 +280,11 @@
   font-size: 18px;
   color: #888;
   margin-top: 3rem;
+}
+
+@media (max-width: 480px)  {
+  .checkout-details-cart{
+    padding: 0;
+  }
+  
 }

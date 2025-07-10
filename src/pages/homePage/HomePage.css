@@ -23,7 +23,7 @@
   font-weight: 400;
 }
 .hero-text button {
-  padding: 10px 40px;
+  padding: 12px 40px;
   background: #000;
   color: white;
   border-radius: 10px;
@@ -74,7 +74,7 @@
   font-weight: 400;
 }
 .offer-banner-content button {
-  padding: 10px 40px;
+  padding: 12px 40px;
   background: #000;
   color: white;
   border-radius: 10px;
@@ -569,6 +569,9 @@
   }
   .women-kid-banner {
     flex-direction: column;
+  }
+  .copyright p{
+    font-size: 14px;
   }
 
   .footer {
