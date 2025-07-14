@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
 const CartPage = () => {
-  const { cartItems, removeFromCart, addToCart, decreaseQuantity } = useContext(CartContext);
+  const { cartItems, removeFromCart, addToCart, decreaseQuantity } =
+    useContext(CartContext);
   const navigate = useNavigate();
 
   const subtotal = cartItems.reduce(
@@ -36,22 +37,37 @@ const CartPage = () => {
               <img src={item.image} alt={item.name} />
               <div className="cart-details">
                 <h3>{item.name}</h3>
-                <p>Category: <span className="light">{item.category || "General"}</span></p>
-                <p>Color: <span className="light">{item.color || "Default"}</span></p>
-                <p>Size: <span className="light">{item.size || "Free"}</span></p>
+                <p>
+                  Category:{" "}
+                  <span className="light">{item.category || "General"}</span>
+                </p>
+                <p>
+                  Color:{" "}
+                  <span className="light">{item.color || "Default"}</span>
+                </p>
+                <p>
+                  Size: <span className="light">{item.size || "Free"}</span>
+                </p>
+                <p className="item-price">
+                  ₹{(item.new_price * item.quantity).toFixed(2)}
+                </p>
               </div>
-              <p className="item-price">₹{(item.new_price * item.quantity).toFixed(2)}</p>
-              <div className="quantity-controls">
-                <button onClick={() => decreaseQuantity(item.id)}>−</button>
-                <span>{item.quantity}</span>
-                <button onClick={() => addToCart(item)}>+</button>
+              <div className="delete-quantity">
+              
+
+                <div className="quantity-controls">
+                  <button onClick={() => decreaseQuantity(item.id)}>−</button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => addToCart(item)}>+</button>
+                </div>
+
+                  <button
+                  className="delete-btn"
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  <RiDeleteBin6Line />
+                </button>
               </div>
-              <button
-                className="delete-btn"
-                onClick={() => removeFromCart(item.id)}
-              >
-                <RiDeleteBin6Line />
-              </button>
             </div>
           ))
         )}
@@ -85,7 +101,9 @@ const CartPage = () => {
             <strong>Total</strong>
             <strong>₹{total.toFixed(2)}</strong>
           </div>
-          <button className="checkout-btn" onClick={handleCheckout}>Checkout →</button>
+          <button className="checkout-btn" onClick={handleCheckout}>
+            Checkout →
+          </button>
         </div>
       )}
     </div>

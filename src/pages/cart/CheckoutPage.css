@@ -282,9 +282,34 @@
   margin-top: 3rem;
 }
 
-@media (max-width: 480px)  {
+
+@media (max-width: 768px) {
+  .product-details h4 {
+    font-size: 14px;
+  }
+
+  .product-details p {
+    font-size: 12px;
+  }
+
+  .product-details .price {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
   .checkout-details-cart{
     padding: 0;
   }
-  
+  .product-details h4 {
+    font-size: 13px;
+  }
+
+  .product-details p {
+    font-size: 11px;
+  }
+
+  .product-details .price {
+    font-size: 12px;
+  }
 }

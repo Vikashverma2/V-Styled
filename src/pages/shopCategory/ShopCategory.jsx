@@ -57,6 +57,7 @@ export const ShopCategory = (props) => {
   
 
   return (
+    <>
     <div className='shopcategory'>
       <img src={props.banner} alt={props.catogry} />
 
@@ -103,10 +104,8 @@ export const ShopCategory = (props) => {
         </div>
       )}
 
-     
-      <Footer />
-     
-      
     </div>
+    <Footer />
+    </>
   );
 };

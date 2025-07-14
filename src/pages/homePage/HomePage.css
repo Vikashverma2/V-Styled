@@ -548,7 +548,7 @@
     grid-template-columns: 1fr;
   }
   .new-arrival-card img {
-    height: 450px;
+    height: 420px;
   }
   .cloth-banner {
     flex-direction: column;
