@@ -66,11 +66,10 @@
   color: white;
   font-size: 18px;
   border-radius: 50%;
- height: fit-content;
- padding: 10px;
+  height: fit-content;
+  padding: 10px;
   cursor: pointer;
   transition: 0.3s;
-  
 }
 
 .product-details img {
@@ -131,6 +130,7 @@
 }
 
 /* Address form inputs */
+
 .address-form input {
   width: 100%;
   padding: 10px;
