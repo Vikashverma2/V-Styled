@@ -11,20 +11,20 @@ const About = () => {
         {/* Hero Section */}
         <div className="about-hero">
           <div className="about-img">
-            <img
-              src={fashionImage}
-              alt="fashion"
-            />
+            <img src={fashionImage} alt="fashion" />
           </div>
           <div className="about-content">
             <h2>About Our Online Shop</h2>
             <p>
-              At <strong>V-Styled</strong>, fashion isn’t just clothing — it’s your personality. Our shop is dedicated to bringing you
-              handpicked premium styles for men, women, and kids. Whether you need elegance or casual comfort, we’ve got
-              you covered with global trends and affordable prices.
+              At <strong>V-Styled</strong>, fashion isn’t just clothing — it’s
+              your personality. Our shop is dedicated to bringing you handpicked
+              premium styles for men, women, and kids. Whether you need elegance
+              or casual comfort, we’ve got you covered with global trends and
+              affordable prices.
             </p>
             <p>
-              Our mission is to help you express your confidence and vibe with style. 🧥👗🕶️
+              Our mission is to help you express your confidence and vibe with
+              style. 🧥👗🕶️
             </p>
           </div>
         </div>
@@ -48,16 +48,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <div className="contact-form-section">
-          <h2>Contact Us <Mail className="icon" /></h2>
-          <form className="contact-form">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" rows="4" required></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
+       
       </div>
 
       <Footer />

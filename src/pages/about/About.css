@@ -72,54 +72,9 @@
   color: #555;
 }
 
-.contact-form-section {
-  text-align: center;
-  padding: 40px 20px;
-  /* background-color: #f8f8f8; */
-  border-radius: 12px;
-  max-width: 700px;
-  margin: 0 auto 60px;
-}
 
-.contact-form-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #222;
-}
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
- 
-}
 
-.contact-form input,
-.contact-form textarea {
-  padding: 12px 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.contact-form button {
-  text-align: center;
-  width: 50%;
-  padding: 12px;
-  background-color: tomato;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.contact-form button:hover {
-  background-color: #444;
-}
 
 @media (max-width: 768px) {
   .about-hero {
