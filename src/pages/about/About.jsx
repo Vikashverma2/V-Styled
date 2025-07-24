@@ -1,35 +1,65 @@
 import React from "react";
 import "./About.css";
+import fashionImage from "../../assets/fashionImage.webp"; // Adjust the path as necessary
 import { Footer } from "../homePage/Footer";
+import { ShoppingBag, Users, Sparkles, Mail } from "lucide-react";
 
 const About = () => {
   return (
     <>
       <div className="about-page">
-        <div className="about-container">
-          <h1>Welcome to V-Styled</h1>
-          <p className="tagline">Your ultimate fashion destination 💫</p>
-          <p>
-            At V-Styled, we believe that fashion is more than just clothing —
-            it’s a bold expression of your personality. Our mission is to
-            empower you to look confident and feel amazing every day.
-          </p>
-          <p>
-            We curate a wide range of premium quality outfits and accessories
-            for men, women, and kids. Whether it’s a casual day out, a formal
-            event, or a party, V-Styled helps you stay ahead of trends and
-            express your unique vibe.
-          </p>
-          <p>
-            Our passionate team constantly scouts the latest global trends and
-            handpicks the most stylish pieces at affordable prices. We’re here
-            to make shopping fun, easy, and inspiring.
-          </p>
-          <p className="closing-message">
-            Join the V-Styled family today and redefine your style journey! 💖
-          </p>
+        {/* Hero Section */}
+        <div className="about-hero">
+          <div className="about-img">
+            <img
+              src={fashionImage}
+              alt="fashion"
+            />
+          </div>
+          <div className="about-content">
+            <h2>About Our Online Shop</h2>
+            <p>
+              At <strong>V-Styled</strong>, fashion isn’t just clothing — it’s your personality. Our shop is dedicated to bringing you
+              handpicked premium styles for men, women, and kids. Whether you need elegance or casual comfort, we’ve got
+              you covered with global trends and affordable prices.
+            </p>
+            <p>
+              Our mission is to help you express your confidence and vibe with style. 🧥👗🕶️
+            </p>
+          </div>
+        </div>
+
+        {/* Info Icons */}
+        <div className="about-icons">
+          <div className="info-box">
+            <ShoppingBag className="icon" />
+            <h4>Wide Collection</h4>
+            <p>From casual to formal, we cover every fashion need.</p>
+          </div>
+          <div className="info-box">
+            <Sparkles className="icon" />
+            <h4>Trendy Picks</h4>
+            <p>We stay updated with the latest fashion buzz.</p>
+          </div>
+          <div className="info-box">
+            <Users className="icon" />
+            <h4>Customer-Centric</h4>
+            <p>We care about your experience. Always!</p>
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="contact-form-section">
+          <h2>Contact Us <Mail className="icon" /></h2>
+          <form className="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
         </div>
       </div>
+
       <Footer />
     </>
   );
