@@ -2,6 +2,6 @@ services:
   - type: web
     name: v-styled
     env: static
-    staticPublishPath: build
+    staticPublishPath: dist
     buildCommand: npm install && npm run build
     branch: main
