@@ -46,10 +46,19 @@ nav ul li a:hover {
 
 .nav-icons {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 25px;
 }
-
+.nav-icon-person {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-icon-person .icon {
+  font-size: 20px;
+  color: #3c3c3c;
+}
 .nav-icon-cart {
   position: relative;
   display: inline-flex;
@@ -66,6 +75,7 @@ nav ul li a:hover {
 .nav-icon-cart .icon:hover {
   color: #ff4d6d;
 }
+
 
 .nav-cart-count,
 .wishlist-count {
@@ -378,6 +388,9 @@ nav ul li a:hover {
 /* .wishlist-message,
 .cart-message {
   margin-top: 10px;
+
+  Copyright © 2025 Viaksh Verma
+
   color: #28a745;
   font-weight: 500;
 } */

@@ -64,12 +64,12 @@ export const Navbar = () => {
         <div className="nav-icons">
           <div className="nav-icon-person">
             {isLoggedIn ? (
-              <Link to="/user-profile" style={{ textDecoration: "none" }}>
+              <Link to="/user-profile" className="nav-icon-cart" style={{ textDecoration: "none" }}>
                 <p className="user-name">Hi, {user?.name?.split(" ")[0]}</p>
               </Link>
             ) : (
               <Link to="/auth">
-                <GoPerson />
+                <GoPerson className="icon" />
               </Link>
             )}
           </div>
